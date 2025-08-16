@@ -1,0 +1,1847 @@
+📝 Logging started - Output will be saved to: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/experimentation/data/logs/experiment_log_config98_20250812_203958.txt
+⏰ Timestamp: 2025-08-12 20:39:58
+================================================================================
+🏦 Bank Marketing Dataset - Active Learning vs Passive Learning Comparison
+================================================================================
+Dataset: UCI Bank Marketing (Portuguese Bank)
+Target: Whether customer subscribed to term deposit (yes/no)
+Features: Age, job, marital status, education, balance, housing, loan, etc.
+================================================================================
+🚀 ENHANCEMENT: Using LightGBM instead of Logistic Regression
+🎯 GOAL: Outperform config23's F1 score (current best strategy)
+================================================================================
+📊 Dataset Size: 45,211 rows (Full dataset)
+📊 Expected splits: ~36,169 train, ~9,042 test
+================================================================================
+Model Configuration:
+  Model Type: lightgbm
+
+Plot Configuration:
+  Show Plots: False
+
+Experiment Configuration:
+  Initial samples: 350
+  Initial strategy: diversity
+  Batch size: 65
+  Iterations: 11
+  Strategies: ['uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'qbc']
+  ✓ Initial strategy 'diversity' is valid
+
+📊 Using FULL bank dataset (45,211 rows)
+✅ Loading bank dataset from: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/data/uci_dataset_00222_bank/bank-full.csv
+Feature type: Numerical age and balance
+Loading and splitting data...
+Dataset shape: (45211, 17)
+Cleaning and preprocessing bank dataset...
+🧹 Cleaning and preprocessing bank dataset...
+  📊 Original dataset shape: (45211, 17)
+  🔍 Missing values in original data:
+    No missing values found
+  ✓ Using numerical age features (normalized + squared)
+  ✓ Using numerical balance features (log-transformed + normalized)
+  🔍 Checking for NaN values after preprocessing...
+    Found NaN values in columns:
+balance_norm    1
+dtype: int64
+    🧹 Filling NaN values...
+      balance_norm: filled with median (-0.3586)
+  🔧 Applying global feature standardization...
+    🔒 Using sorted column order for reproducibility: ['age_norm', 'age_squared', 'balance_norm', 'campaign', 'default_bool', 'duration', 'housing_bool', 'loan_bool', 'month_cos', 'month_sin']
+    ✓ Standardized 10 numerical features
+    🔒 Standardization parameters:
+      Mean values: {'age_norm': 2.0116668549090447e-16, 'age_squared': 0.9999778814890183, 'balance_norm': -7.93146638145373e-06, 'campaign': 2.763840658246887, 'default_bool': 0.018026586450200173, 'duration': 258.1630797814691, 'housing_bool': 0.5558381809736569, 'loan_bool': 0.16022649355245405, 'month_cos': -0.4703013950820929, 'month_sin': 0.01844905737733411}
+      Scale values: {'age_norm': 0.999988940683355, 'age_squared': 1.5229247271132622, 'balance_norm': 0.9999793033137726, 'campaign': 3.097986621285248, 'default_bool': 0.133047467586398, 'duration': 257.5249641835511, 'housing_bool': 0.4968723151329254, 'loan_bool': 0.3668159815443426, 'month_cos': 0.6348584209990016, 'month_sin': 0.6127242571927273}
+  📊 Final dataset shape: (45211, 31)
+  🎯 Target distribution: {0: 39922, 1: 5289}
+Features after preprocessing: 31
+Label distribution: {0: 39922, 1: 5289}
+Train set: 36168 samples
+Test set: 9043 samples
+Label distribution in train: {0: 31937, 1: 4231}
+
+================================================================================
+RUNNING 10 EXPERIMENTS FOR STATISTICAL SIGNIFICANCE
+================================================================================
+
+--- Run 1/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4292, Accuracy: 0.8662
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4787, Accuracy: 0.8883
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4961, Accuracy: 0.8922
+Selected 65 samples using diversity sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5094, Accuracy: 0.8959
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5121, Accuracy: 0.8938
+Selected 65 samples using diversity sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5070, Accuracy: 0.8927
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5305, Accuracy: 0.8989
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5373, Accuracy: 0.8998
+Selected 65 samples using diversity sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5473, Accuracy: 0.9001
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5385, Accuracy: 0.8981
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5410, Accuracy: 0.8987
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5156, Accuracy: 0.8955
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4432, Accuracy: 0.8753
+Selected 65 samples using random sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4131, Accuracy: 0.8786
+Selected 65 samples using random sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4069, Accuracy: 0.8771
+Selected 65 samples using random sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4585, Accuracy: 0.8766
+Selected 65 samples using random sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4490, Accuracy: 0.8775
+Selected 65 samples using random sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4707, Accuracy: 0.8815
+Selected 65 samples using random sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4903, Accuracy: 0.8796
+Selected 65 samples using random sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4859, Accuracy: 0.8818
+Selected 65 samples using random sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5107, Accuracy: 0.8858
+Selected 65 samples using random sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5011, Accuracy: 0.8792
+Selected 65 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5017, Accuracy: 0.8784
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.4927, Accuracy: 0.8768
+Run 1 completed - Active F1: 0.5156, Passive F1: 0.4927
+
+--- Run 2/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.3640, Accuracy: 0.8623
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4413, Accuracy: 0.8810
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4457, Accuracy: 0.8872
+Selected 65 samples using diversity sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4413, Accuracy: 0.8848
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4547, Accuracy: 0.8869
+Selected 65 samples using diversity sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4699, Accuracy: 0.8893
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4827, Accuracy: 0.8948
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4811, Accuracy: 0.8938
+Selected 65 samples using diversity sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4862, Accuracy: 0.8942
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4884, Accuracy: 0.8931
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4894, Accuracy: 0.8938
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5150, Accuracy: 0.8965
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4825, Accuracy: 0.8731
+Selected 65 samples using random sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4898, Accuracy: 0.8724
+Selected 65 samples using random sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4902, Accuracy: 0.8706
+Selected 65 samples using random sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5184, Accuracy: 0.8772
+Selected 65 samples using random sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5145, Accuracy: 0.8771
+Selected 65 samples using random sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5275, Accuracy: 0.8777
+Selected 65 samples using random sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5210, Accuracy: 0.8754
+Selected 65 samples using random sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5189, Accuracy: 0.8752
+Selected 65 samples using random sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5117, Accuracy: 0.8725
+Selected 65 samples using random sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5205, Accuracy: 0.8770
+Selected 65 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5191, Accuracy: 0.8766
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5266, Accuracy: 0.8771
+Run 2 completed - Active F1: 0.5150, Passive F1: 0.5266
+
+--- Run 3/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4651, Accuracy: 0.8782
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5059, Accuracy: 0.8901
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5028, Accuracy: 0.8909
+Selected 65 samples using diversity sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5288, Accuracy: 0.8936
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5171, Accuracy: 0.8944
+Selected 65 samples using diversity sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4955, Accuracy: 0.8908
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5216, Accuracy: 0.8942
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5253, Accuracy: 0.8951
+Selected 65 samples using diversity sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5028, Accuracy: 0.8904
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5045, Accuracy: 0.8938
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5073, Accuracy: 0.8929
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5021, Accuracy: 0.8927
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4585, Accuracy: 0.8674
+Selected 65 samples using random sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4808, Accuracy: 0.8654
+Selected 65 samples using random sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4979, Accuracy: 0.8667
+Selected 65 samples using random sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4917, Accuracy: 0.8685
+Selected 65 samples using random sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5011, Accuracy: 0.8753
+Selected 65 samples using random sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5221, Accuracy: 0.8788
+Selected 65 samples using random sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5323, Accuracy: 0.8788
+Selected 65 samples using random sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5276, Accuracy: 0.8817
+Selected 65 samples using random sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5444, Accuracy: 0.8850
+Selected 65 samples using random sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5496, Accuracy: 0.8844
+Selected 65 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5434, Accuracy: 0.8801
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5407, Accuracy: 0.8777
+Run 3 completed - Active F1: 0.5021, Passive F1: 0.5407
+
+--- Run 4/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4302, Accuracy: 0.8539
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4636, Accuracy: 0.8788
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4694, Accuracy: 0.8884
+Selected 65 samples using diversity sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4574, Accuracy: 0.8865
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4591, Accuracy: 0.8857
+Selected 65 samples using diversity sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4761, Accuracy: 0.8895
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4675, Accuracy: 0.8866
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4946, Accuracy: 0.8901
+Selected 65 samples using diversity sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5032, Accuracy: 0.8911
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5206, Accuracy: 0.8923
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5136, Accuracy: 0.8913
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5178, Accuracy: 0.8952
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4426, Accuracy: 0.8604
+Selected 65 samples using random sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4499, Accuracy: 0.8665
+Selected 65 samples using random sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4361, Accuracy: 0.8573
+Selected 65 samples using random sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4412, Accuracy: 0.8554
+Selected 65 samples using random sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4531, Accuracy: 0.8622
+Selected 65 samples using random sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4800, Accuracy: 0.8673
+Selected 65 samples using random sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5112, Accuracy: 0.8699
+Selected 65 samples using random sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5099, Accuracy: 0.8735
+Selected 65 samples using random sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5008, Accuracy: 0.8666
+Selected 65 samples using random sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5108, Accuracy: 0.8713
+Selected 65 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5190, Accuracy: 0.8724
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5191, Accuracy: 0.8763
+Run 4 completed - Active F1: 0.5178, Passive F1: 0.5191
+
+--- Run 5/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4157, Accuracy: 0.8410
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4659, Accuracy: 0.8831
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4843, Accuracy: 0.8864
+Selected 65 samples using diversity sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4982, Accuracy: 0.8853
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5146, Accuracy: 0.8965
+Selected 65 samples using diversity sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5079, Accuracy: 0.8926
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5128, Accuracy: 0.8949
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5251, Accuracy: 0.8980
+Selected 65 samples using diversity sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5045, Accuracy: 0.8927
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5312, Accuracy: 0.8970
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5216, Accuracy: 0.8958
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5265, Accuracy: 0.8962
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4419, Accuracy: 0.8712
+Selected 65 samples using random sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4426, Accuracy: 0.8764
+Selected 65 samples using random sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4534, Accuracy: 0.8720
+Selected 65 samples using random sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4667, Accuracy: 0.8759
+Selected 65 samples using random sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4508, Accuracy: 0.8750
+Selected 65 samples using random sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4820, Accuracy: 0.8764
+Selected 65 samples using random sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5117, Accuracy: 0.8813
+Selected 65 samples using random sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5196, Accuracy: 0.8814
+Selected 65 samples using random sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5271, Accuracy: 0.8832
+Selected 65 samples using random sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5382, Accuracy: 0.8837
+Selected 65 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5402, Accuracy: 0.8861
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5224, Accuracy: 0.8831
+Run 5 completed - Active F1: 0.5265, Passive F1: 0.5224
+
+--- Run 6/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4511, Accuracy: 0.8688
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4384, Accuracy: 0.8803
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4334, Accuracy: 0.8818
+Selected 65 samples using diversity sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4252, Accuracy: 0.8800
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4423, Accuracy: 0.8857
+Selected 65 samples using diversity sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4489, Accuracy: 0.8866
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4960, Accuracy: 0.8947
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5046, Accuracy: 0.8947
+Selected 65 samples using diversity sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5206, Accuracy: 0.8956
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4887, Accuracy: 0.8909
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5147, Accuracy: 0.8970
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5088, Accuracy: 0.8954
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4127, Accuracy: 0.8717
+Selected 65 samples using random sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4632, Accuracy: 0.8760
+Selected 65 samples using random sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4617, Accuracy: 0.8746
+Selected 65 samples using random sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4853, Accuracy: 0.8763
+Selected 65 samples using random sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4754, Accuracy: 0.8749
+Selected 65 samples using random sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4733, Accuracy: 0.8745
+Selected 65 samples using random sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4916, Accuracy: 0.8742
+Selected 65 samples using random sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5000, Accuracy: 0.8742
+Selected 65 samples using random sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5033, Accuracy: 0.8767
+Selected 65 samples using random sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5066, Accuracy: 0.8756
+Selected 65 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5123, Accuracy: 0.8763
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5304, Accuracy: 0.8813
+Run 6 completed - Active F1: 0.5088, Passive F1: 0.5304
+
+--- Run 7/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4753, Accuracy: 0.8810
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4344, Accuracy: 0.8909
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4310, Accuracy: 0.8872
+Selected 65 samples using diversity sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4254, Accuracy: 0.8876
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4685, Accuracy: 0.8902
+Selected 65 samples using diversity sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4564, Accuracy: 0.8897
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4941, Accuracy: 0.8936
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4902, Accuracy: 0.8919
+Selected 65 samples using diversity sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5019, Accuracy: 0.8927
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5138, Accuracy: 0.8954
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5153, Accuracy: 0.8970
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.4950, Accuracy: 0.8942
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4471, Accuracy: 0.8735
+Selected 65 samples using random sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4634, Accuracy: 0.8764
+Selected 65 samples using random sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4755, Accuracy: 0.8786
+Selected 65 samples using random sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4846, Accuracy: 0.8777
+Selected 65 samples using random sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4983, Accuracy: 0.8784
+Selected 65 samples using random sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5152, Accuracy: 0.8808
+Selected 65 samples using random sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5135, Accuracy: 0.8779
+Selected 65 samples using random sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5435, Accuracy: 0.8811
+Selected 65 samples using random sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5298, Accuracy: 0.8788
+Selected 65 samples using random sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5331, Accuracy: 0.8760
+Selected 65 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5345, Accuracy: 0.8779
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5462, Accuracy: 0.8826
+Run 7 completed - Active F1: 0.4950, Passive F1: 0.5462
+
+--- Run 8/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.3560, Accuracy: 0.8600
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4166, Accuracy: 0.8835
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4792, Accuracy: 0.8894
+Selected 65 samples using diversity sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4739, Accuracy: 0.8843
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4944, Accuracy: 0.8942
+Selected 65 samples using diversity sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4891, Accuracy: 0.8931
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5123, Accuracy: 0.8989
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4960, Accuracy: 0.8966
+Selected 65 samples using diversity sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5175, Accuracy: 0.8989
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5314, Accuracy: 0.8988
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5137, Accuracy: 0.8966
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5101, Accuracy: 0.8953
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4763, Accuracy: 0.8687
+Selected 65 samples using random sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4777, Accuracy: 0.8737
+Selected 65 samples using random sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4758, Accuracy: 0.8730
+Selected 65 samples using random sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4905, Accuracy: 0.8771
+Selected 65 samples using random sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4994, Accuracy: 0.8786
+Selected 65 samples using random sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5067, Accuracy: 0.8772
+Selected 65 samples using random sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5151, Accuracy: 0.8779
+Selected 65 samples using random sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5240, Accuracy: 0.8847
+Selected 65 samples using random sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5340, Accuracy: 0.8873
+Selected 65 samples using random sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5362, Accuracy: 0.8850
+Selected 65 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5390, Accuracy: 0.8822
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5254, Accuracy: 0.8791
+Run 8 completed - Active F1: 0.5101, Passive F1: 0.5254
+
+--- Run 9/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4263, Accuracy: 0.8542
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4785, Accuracy: 0.8909
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4598, Accuracy: 0.8970
+Selected 65 samples using diversity sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4446, Accuracy: 0.8947
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4715, Accuracy: 0.8949
+Selected 65 samples using diversity sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4876, Accuracy: 0.8974
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4825, Accuracy: 0.8956
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4675, Accuracy: 0.8948
+Selected 65 samples using diversity sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4599, Accuracy: 0.8919
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4765, Accuracy: 0.8940
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4970, Accuracy: 0.8970
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5035, Accuracy: 0.8979
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4516, Accuracy: 0.8872
+Selected 65 samples using random sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4572, Accuracy: 0.8825
+Selected 65 samples using random sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4423, Accuracy: 0.8825
+Selected 65 samples using random sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4497, Accuracy: 0.8775
+Selected 65 samples using random sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4631, Accuracy: 0.8824
+Selected 65 samples using random sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4729, Accuracy: 0.8844
+Selected 65 samples using random sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4691, Accuracy: 0.8814
+Selected 65 samples using random sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5060, Accuracy: 0.8799
+Selected 65 samples using random sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5121, Accuracy: 0.8831
+Selected 65 samples using random sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5144, Accuracy: 0.8807
+Selected 65 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5353, Accuracy: 0.8843
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5298, Accuracy: 0.8822
+Run 9 completed - Active F1: 0.5035, Passive F1: 0.5298
+
+--- Run 10/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.3609, Accuracy: 0.8717
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.3896, Accuracy: 0.8770
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4144, Accuracy: 0.8832
+Selected 65 samples using diversity sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4370, Accuracy: 0.8846
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4997, Accuracy: 0.8934
+Selected 65 samples using diversity sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5098, Accuracy: 0.8926
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5216, Accuracy: 0.8930
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5298, Accuracy: 0.8952
+Selected 65 samples using diversity sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5317, Accuracy: 0.8948
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5093, Accuracy: 0.8905
+Selected 65 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5115, Accuracy: 0.8944
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5196, Accuracy: 0.8957
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 350 samples
+Remaining unlabeled: 28584 samples
+
+--- Iteration 1 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4085, Accuracy: 0.8583
+Selected 65 samples using random sampling
+Total labeled samples: 415
+Remaining unlabeled: 28519
+
+--- Iteration 2 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4333, Accuracy: 0.8626
+Selected 65 samples using random sampling
+Total labeled samples: 480
+Remaining unlabeled: 28454
+
+--- Iteration 3 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4298, Accuracy: 0.8625
+Selected 65 samples using random sampling
+Total labeled samples: 545
+Remaining unlabeled: 28389
+
+--- Iteration 4 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4368, Accuracy: 0.8627
+Selected 65 samples using random sampling
+Total labeled samples: 610
+Remaining unlabeled: 28324
+
+--- Iteration 5 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4338, Accuracy: 0.8622
+Selected 65 samples using random sampling
+Total labeled samples: 675
+Remaining unlabeled: 28259
+
+--- Iteration 6 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4567, Accuracy: 0.8698
+Selected 65 samples using random sampling
+Total labeled samples: 740
+Remaining unlabeled: 28194
+
+--- Iteration 7 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4375, Accuracy: 0.8631
+Selected 65 samples using random sampling
+Total labeled samples: 805
+Remaining unlabeled: 28129
+
+--- Iteration 8 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4834, Accuracy: 0.8706
+Selected 65 samples using random sampling
+Total labeled samples: 870
+Remaining unlabeled: 28064
+
+--- Iteration 9 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4952, Accuracy: 0.8687
+Selected 65 samples using random sampling
+Total labeled samples: 935
+Remaining unlabeled: 27999
+
+--- Iteration 10 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.4911, Accuracy: 0.8699
+Selected 65 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  🚀 Using LightGBM model
+Validation - F1: 0.5016, Accuracy: 0.8687
+
+--- Final Test Evaluation ---
+  🚀 Using LightGBM model
+Test Performance - F1: 0.5187, Accuracy: 0.8746
+Run 10 completed - Active F1: 0.5196, Passive F1: 0.5187
+
+================================================================================
+STATISTICAL SIGNIFICANCE TESTING
+================================================================================
+Active Learning F1: 0.5114 ± 0.0089
+Passive Learning F1: 0.5252 ± 0.0137
+Difference: -0.0138
+
+Paired t-test:
+  t-statistic: -2.0010
+  p-value: 0.076434
+  Significant (α=0.05): No
+
+Wilcoxon signed-rank test:
+  W-statistic: 11.0000
+  p-value: 0.105469
+  Significant (α=0.05): No
+
+Effect size (Cohen's d): -1.1949
+Effect size interpretation: large
+
+95% Confidence Intervals:
+  Active Learning: [0.5050, 0.5178]
+  Passive Learning: [0.5154, 0.5350]
+
+Statistical results saved to: statistical_results_config98.csv
+
+🔍 DEBUG: Data Sources for Tables
+Statistical Test Data Table: All 10 runs (Final Test Set Performance)
+Iteration Progression Plot: Run 1 (Validation Set Performance)
+Summary Section: Run 1 (Final Test Set Performance)
+Note: Statistical test data shows all runs, iteration plot shows training progress
+
+================================================================================
+STATISTICAL TEST DATA COMPARISON (Final Test Set Performance)
+================================================================================
+Note: This table shows the final test set F1 scores used in statistical significance testing
+Each row represents one complete experiment run with different random seeds
+
+ Run  Random_Seed  Active_F1  Passive_F1  Active_Accuracy  Passive_Accuracy  F1_Improvement  Improvement_%
+   1           42   0.515633    0.492714         0.895499          0.876811        0.022919       4.651579
+   2           43   0.515026    0.526630         0.896495          0.877143       -0.011604      -2.203414
+   3           44   0.502053    0.540698         0.892735          0.877695       -0.038644      -7.147115
+   4           45   0.517803    0.519123         0.895168          0.876258       -0.001321      -0.254408
+   5           46   0.526475    0.522368         0.896163          0.883114        0.004107       0.786268
+   6           47   0.508827    0.530416         0.895389          0.881345       -0.021589      -4.070236
+   7           48   0.494987    0.546154         0.894172          0.882561       -0.051167      -9.368613
+   8           49   0.510088    0.525402         0.895278          0.879133       -0.015314      -2.914666
+   9           50   0.503497    0.529801         0.897932          0.882229       -0.026305      -4.965035
+  10           51   0.519613    0.518676         0.895720          0.874599        0.000937       0.180675
+
+================================================================================
+SUMMARY STATISTICS (All 10 Runs)
+================================================================================
+Active Learning F1: 0.5114 ± 0.0089
+Passive Learning F1: 0.5252 ± 0.0137
+Mean Improvement: -0.0138
+Mean Improvement %: -2.63%
+
+Statistical test data saved to: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/experimentation/data/statistical_test_data_config98.csv
+Iteration progression plot saved to: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/experimentation/data/active_vs_passive_comparison_config98.png
+
+📝 Logging completed - Check the logs folder for detailed output

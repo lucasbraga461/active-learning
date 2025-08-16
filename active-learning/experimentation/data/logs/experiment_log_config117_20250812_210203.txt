@@ -1,0 +1,1849 @@
+📝 Logging started - Output will be saved to: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/experimentation/data/logs/experiment_log_config117_20250812_210203.txt
+⏰ Timestamp: 2025-08-12 21:02:03
+================================================================================
+🏦 Bank Marketing Dataset - Active Learning vs Passive Learning Comparison
+================================================================================
+Dataset: UCI Bank Marketing (Portuguese Bank)
+Target: Whether customer subscribed to term deposit (yes/no)
+Features: Age, job, marital status, education, balance, housing, loan, etc.
+================================================================================
+🚀 ENHANCEMENT: Using Logistic Regression WITHOUT Regularization
+🎯 GOAL: Test if lack of regularization was the limiting factor
+🔧 Model: LogisticRegression() with DEFAULT parameters
+================================================================================
+📊 Dataset Size: 45,211 rows (Full dataset)
+📊 Expected splits: ~36,169 train, ~9,042 test
+================================================================================
+Model Configuration:
+  Model Type: Logistic Regression (NO regularization)
+  Parameters: DEFAULT (C=1.0, penalty='l2', but C=1.0 means no penalty)
+
+Plot Configuration:
+  Show Plots: False
+
+Experiment Configuration:
+  Initial samples: 400
+  Initial strategy: diversity
+  Batch size: 60
+  Iterations: 11
+  Strategies: ['uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'qbc']
+  ✓ Initial strategy 'diversity' is valid
+
+📊 Using FULL bank dataset (45,211 rows)
+✅ Loading bank dataset from: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/data/uci_dataset_00222_bank/bank-full.csv
+Feature type: Numerical age and balance
+Loading and splitting data...
+Dataset shape: (45211, 17)
+Cleaning and preprocessing bank dataset...
+🧹 Cleaning and preprocessing bank dataset...
+  📊 Original dataset shape: (45211, 17)
+  🔍 Missing values in original data:
+    No missing values found
+  ✓ Using numerical age features (normalized + squared)
+  ✓ Using numerical balance features (log-transformed + normalized)
+  🔍 Checking for NaN values after preprocessing...
+    Found NaN values in columns:
+balance_norm    1
+dtype: int64
+    🧹 Filling NaN values...
+      balance_norm: filled with median (-0.3586)
+  🔧 Applying global feature standardization...
+    🔒 Using sorted column order for reproducibility: ['age_norm', 'age_squared', 'balance_norm', 'campaign', 'default_bool', 'duration', 'housing_bool', 'loan_bool', 'month_cos', 'month_sin']
+    ✓ Standardized 10 numerical features
+    🔒 Standardization parameters:
+      Mean values: {'age_norm': 2.0116668549090447e-16, 'age_squared': 0.9999778814890183, 'balance_norm': -7.93146638145373e-06, 'campaign': 2.763840658246887, 'default_bool': 0.018026586450200173, 'duration': 258.1630797814691, 'housing_bool': 0.5558381809736569, 'loan_bool': 0.16022649355245405, 'month_cos': -0.4703013950820929, 'month_sin': 0.01844905737733411}
+      Scale values: {'age_norm': 0.999988940683355, 'age_squared': 1.5229247271132622, 'balance_norm': 0.9999793033137726, 'campaign': 3.097986621285248, 'default_bool': 0.133047467586398, 'duration': 257.5249641835511, 'housing_bool': 0.4968723151329254, 'loan_bool': 0.3668159815443426, 'month_cos': 0.6348584209990016, 'month_sin': 0.6127242571927273}
+  📊 Final dataset shape: (45211, 31)
+  🎯 Target distribution: {0: 39922, 1: 5289}
+Features after preprocessing: 31
+Label distribution: {0: 39922, 1: 5289}
+Train set: 36168 samples
+Test set: 9043 samples
+Label distribution in train: {0: 31937, 1: 4231}
+
+================================================================================
+RUNNING 10 EXPERIMENTS FOR STATISTICAL SIGNIFICANCE
+================================================================================
+
+--- Run 1/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4228, Accuracy: 0.8909
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4190, Accuracy: 0.8969
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4685, Accuracy: 0.8984
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4835, Accuracy: 0.9002
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4793, Accuracy: 0.8958
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4900, Accuracy: 0.8981
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4877, Accuracy: 0.8963
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4969, Accuracy: 0.8978
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4970, Accuracy: 0.8967
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4987, Accuracy: 0.8960
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5060, Accuracy: 0.8980
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.4848, Accuracy: 0.8935
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4962, Accuracy: 0.8145
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5039, Accuracy: 0.8247
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5137, Accuracy: 0.8207
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5225, Accuracy: 0.8315
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5244, Accuracy: 0.8340
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5168, Accuracy: 0.8273
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5177, Accuracy: 0.8290
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5187, Accuracy: 0.8276
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5191, Accuracy: 0.8315
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5171, Accuracy: 0.8304
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5301, Accuracy: 0.8358
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5145, Accuracy: 0.8278
+Run 1 completed - Active F1: 0.4848, Passive F1: 0.5145
+
+--- Run 2/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.3795, Accuracy: 0.8323
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4248, Accuracy: 0.8922
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4214, Accuracy: 0.8937
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4351, Accuracy: 0.8959
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4650, Accuracy: 0.8976
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4443, Accuracy: 0.8938
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4614, Accuracy: 0.8919
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4702, Accuracy: 0.8907
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4788, Accuracy: 0.8913
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4919, Accuracy: 0.8915
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4987, Accuracy: 0.8930
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5155, Accuracy: 0.8963
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5077, Accuracy: 0.8319
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5108, Accuracy: 0.8337
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5115, Accuracy: 0.8329
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5186, Accuracy: 0.8373
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5188, Accuracy: 0.8372
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5220, Accuracy: 0.8380
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5248, Accuracy: 0.8385
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5222, Accuracy: 0.8376
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5266, Accuracy: 0.8402
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5256, Accuracy: 0.8398
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5273, Accuracy: 0.8409
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5257, Accuracy: 0.8376
+Run 2 completed - Active F1: 0.5155, Passive F1: 0.5257
+
+--- Run 3/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4109, Accuracy: 0.8779
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.3836, Accuracy: 0.8942
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4109, Accuracy: 0.8949
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4201, Accuracy: 0.8947
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4172, Accuracy: 0.8911
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4271, Accuracy: 0.8913
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4491, Accuracy: 0.8938
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4646, Accuracy: 0.8945
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4680, Accuracy: 0.8944
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4725, Accuracy: 0.8954
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4797, Accuracy: 0.8974
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.4871, Accuracy: 0.8968
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4992, Accuracy: 0.8361
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5027, Accuracy: 0.8359
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5036, Accuracy: 0.8390
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5193, Accuracy: 0.8434
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5195, Accuracy: 0.8399
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5035, Accuracy: 0.8329
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5117, Accuracy: 0.8356
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5103, Accuracy: 0.8349
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5133, Accuracy: 0.8325
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5097, Accuracy: 0.8290
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5016, Accuracy: 0.8225
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5025, Accuracy: 0.8220
+Run 3 completed - Active F1: 0.4871, Passive F1: 0.5025
+
+--- Run 4/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.3914, Accuracy: 0.8052
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4221, Accuracy: 0.8698
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4373, Accuracy: 0.8759
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4446, Accuracy: 0.8753
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4537, Accuracy: 0.8825
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4592, Accuracy: 0.8837
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4645, Accuracy: 0.8853
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4625, Accuracy: 0.8869
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4762, Accuracy: 0.8875
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4785, Accuracy: 0.8858
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4836, Accuracy: 0.8869
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5013, Accuracy: 0.8931
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4445, Accuracy: 0.8020
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4782, Accuracy: 0.8166
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4763, Accuracy: 0.8124
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4824, Accuracy: 0.8173
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4851, Accuracy: 0.8207
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4849, Accuracy: 0.8208
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4872, Accuracy: 0.8233
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4936, Accuracy: 0.8244
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4935, Accuracy: 0.8235
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4929, Accuracy: 0.8262
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5012, Accuracy: 0.8325
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5118, Accuracy: 0.8376
+Run 4 completed - Active F1: 0.5013, Passive F1: 0.5118
+
+--- Run 5/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4260, Accuracy: 0.8123
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4275, Accuracy: 0.8930
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4513, Accuracy: 0.8918
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4590, Accuracy: 0.8915
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4628, Accuracy: 0.8922
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4623, Accuracy: 0.8926
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4798, Accuracy: 0.8912
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4759, Accuracy: 0.8916
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4748, Accuracy: 0.8920
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4746, Accuracy: 0.8926
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4740, Accuracy: 0.8936
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.4878, Accuracy: 0.8959
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4856, Accuracy: 0.8196
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4919, Accuracy: 0.8130
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5006, Accuracy: 0.8204
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5067, Accuracy: 0.8267
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5018, Accuracy: 0.8237
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5068, Accuracy: 0.8237
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5006, Accuracy: 0.8240
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5090, Accuracy: 0.8218
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5125, Accuracy: 0.8269
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5137, Accuracy: 0.8254
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5090, Accuracy: 0.8221
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5059, Accuracy: 0.8199
+Run 5 completed - Active F1: 0.4878, Passive F1: 0.5059
+
+--- Run 6/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4198, Accuracy: 0.8785
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4272, Accuracy: 0.8962
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4842, Accuracy: 0.8940
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4873, Accuracy: 0.8880
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4994, Accuracy: 0.8886
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4967, Accuracy: 0.8848
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5022, Accuracy: 0.8923
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5074, Accuracy: 0.8900
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5083, Accuracy: 0.8895
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5185, Accuracy: 0.8940
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5067, Accuracy: 0.8931
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5085, Accuracy: 0.8942
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4967, Accuracy: 0.8442
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4815, Accuracy: 0.8300
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4907, Accuracy: 0.8341
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4913, Accuracy: 0.8297
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4988, Accuracy: 0.8327
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5096, Accuracy: 0.8374
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5094, Accuracy: 0.8376
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5042, Accuracy: 0.8276
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5077, Accuracy: 0.8319
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5118, Accuracy: 0.8338
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5186, Accuracy: 0.8352
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5160, Accuracy: 0.8342
+Run 6 completed - Active F1: 0.5085, Passive F1: 0.5160
+
+--- Run 7/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4097, Accuracy: 0.8857
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4495, Accuracy: 0.8825
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4727, Accuracy: 0.8865
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4704, Accuracy: 0.8861
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4870, Accuracy: 0.8966
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4822, Accuracy: 0.8952
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4977, Accuracy: 0.8931
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5063, Accuracy: 0.8976
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5000, Accuracy: 0.8955
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4990, Accuracy: 0.8934
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4973, Accuracy: 0.8960
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.4862, Accuracy: 0.8948
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5214, Accuracy: 0.8412
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5206, Accuracy: 0.8424
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5171, Accuracy: 0.8399
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5162, Accuracy: 0.8409
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5192, Accuracy: 0.8425
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5117, Accuracy: 0.8383
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5210, Accuracy: 0.8361
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5258, Accuracy: 0.8384
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5241, Accuracy: 0.8363
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5283, Accuracy: 0.8373
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5266, Accuracy: 0.8377
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5229, Accuracy: 0.8349
+Run 7 completed - Active F1: 0.4862, Passive F1: 0.5229
+
+--- Run 8/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.3894, Accuracy: 0.8435
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4497, Accuracy: 0.8738
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4618, Accuracy: 0.8772
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4664, Accuracy: 0.8770
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4790, Accuracy: 0.8836
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4761, Accuracy: 0.8832
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4745, Accuracy: 0.8846
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4825, Accuracy: 0.8894
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4946, Accuracy: 0.8898
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5044, Accuracy: 0.8908
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5188, Accuracy: 0.8956
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.4987, Accuracy: 0.8922
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4783, Accuracy: 0.8208
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4684, Accuracy: 0.8130
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4781, Accuracy: 0.8141
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4948, Accuracy: 0.8185
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4939, Accuracy: 0.8161
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4947, Accuracy: 0.8148
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4940, Accuracy: 0.8069
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5039, Accuracy: 0.8146
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5078, Accuracy: 0.8178
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5047, Accuracy: 0.8182
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5068, Accuracy: 0.8200
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5084, Accuracy: 0.8214
+Run 8 completed - Active F1: 0.4987, Passive F1: 0.5084
+
+--- Run 9/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4058, Accuracy: 0.7968
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4596, Accuracy: 0.8761
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4759, Accuracy: 0.8871
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4774, Accuracy: 0.8883
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4771, Accuracy: 0.8912
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4808, Accuracy: 0.8895
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4876, Accuracy: 0.8942
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4890, Accuracy: 0.8937
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4958, Accuracy: 0.8929
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4997, Accuracy: 0.8920
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5105, Accuracy: 0.8937
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5015, Accuracy: 0.8930
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4882, Accuracy: 0.8267
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4843, Accuracy: 0.8210
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4951, Accuracy: 0.8235
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4930, Accuracy: 0.8189
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4865, Accuracy: 0.8135
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4928, Accuracy: 0.8142
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4994, Accuracy: 0.8160
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5011, Accuracy: 0.8181
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5033, Accuracy: 0.8207
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5006, Accuracy: 0.8166
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5117, Accuracy: 0.8214
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.4967, Accuracy: 0.8136
+Run 9 completed - Active F1: 0.5015, Passive F1: 0.4967
+
+--- Run 10/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.3781, Accuracy: 0.8713
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.3656, Accuracy: 0.8887
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4333, Accuracy: 0.8926
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4402, Accuracy: 0.8913
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4453, Accuracy: 0.8956
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4604, Accuracy: 0.8973
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4710, Accuracy: 0.8966
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4814, Accuracy: 0.8978
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4860, Accuracy: 0.8983
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4959, Accuracy: 0.8988
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4959, Accuracy: 0.8974
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.4893, Accuracy: 0.8968
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4570, Accuracy: 0.8150
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4669, Accuracy: 0.8207
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4740, Accuracy: 0.8208
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4781, Accuracy: 0.8255
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4889, Accuracy: 0.8217
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4906, Accuracy: 0.8243
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.4939, Accuracy: 0.8235
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5068, Accuracy: 0.8243
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5128, Accuracy: 0.8311
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5100, Accuracy: 0.8311
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Validation - F1: 0.5087, Accuracy: 0.8312
+
+--- Final Test Evaluation ---
+  📊 Using Logistic Regression with DEFAULT parameters (no regularization)
+Test Performance - F1: 0.5067, Accuracy: 0.8286
+Run 10 completed - Active F1: 0.4893, Passive F1: 0.5067
+
+================================================================================
+STATISTICAL SIGNIFICANCE TESTING
+================================================================================
+Active Learning F1: 0.4961 ± 0.0101
+Passive Learning F1: 0.5111 ± 0.0085
+Difference: -0.0150
+
+Paired t-test:
+  t-statistic: -4.0787
+  p-value: 0.002763
+  Significant (α=0.05): Yes
+
+Wilcoxon signed-rank test:
+  W-statistic: 1.0000
+  p-value: 0.003906
+  Significant (α=0.05): Yes
+
+Effect size (Cohen's d): -1.6127
+Effect size interpretation: large
+
+95% Confidence Intervals:
+  Active Learning: [0.4889, 0.5033]
+  Passive Learning: [0.5050, 0.5172]
+
+Statistical results saved to: statistical_results_config117.csv
+
+🔍 DEBUG: Data Sources for Tables
+Statistical Test Data Table: All 10 runs (Final Test Set Performance)
+Iteration Progression Plot: Run 1 (Validation Set Performance)
+Summary Section: Run 1 (Final Test Set Performance)
+Note: Statistical test data shows all runs, iteration plot shows training progress
+
+================================================================================
+STATISTICAL TEST DATA COMPARISON (Final Test Set Performance)
+================================================================================
+Note: This table shows the final test set F1 scores used in statistical significance testing
+Each row represents one complete experiment run with different random seeds
+
+ Run  Random_Seed  Active_F1  Passive_F1  Active_Accuracy  Passive_Accuracy  F1_Improvement  Improvement_%
+   1           42   0.484751    0.514500         0.893509          0.827823       -0.029748      -5.781993
+   2           43   0.515496    0.525670         0.896273          0.837554       -0.010174      -1.935461
+   3           44   0.487081    0.502472         0.896826          0.821962       -0.015391      -3.063130
+   4           45   0.501289    0.511798         0.893066          0.837554       -0.010509      -2.053274
+   5           46   0.487752    0.505914         0.895942          0.819861       -0.018163      -3.590073
+   6           47   0.508475    0.515983         0.894172          0.834236       -0.007509      -1.455209
+   7           48   0.486224    0.522851         0.894836          0.834900       -0.036627      -7.005266
+   8           49   0.498715    0.508371         0.892182          0.821409       -0.009657      -1.899543
+   9           50   0.501545    0.496716         0.892956          0.813557        0.004828       0.972060
+  10           51   0.489327    0.506684         0.896826          0.828597       -0.017357      -3.425584
+
+================================================================================
+SUMMARY STATISTICS (All 10 Runs)
+================================================================================
+Active Learning F1: 0.4961 ± 0.0101
+Passive Learning F1: 0.5111 ± 0.0085
+Mean Improvement: -0.0150
+Mean Improvement %: -2.94%
+
+Statistical test data saved to: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/experimentation/data/statistical_test_data_config117.csv
+Iteration progression plot saved to: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/experimentation/data/active_vs_passive_comparison_config117.png
+
+📝 Logging completed - Check the logs folder for detailed output

@@ -1,0 +1,1604 @@
+📝 Logging started - Output will be saved to: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/experimentation/data/logs/experiment_log_config61_20250812_195259.txt
+⏰ Timestamp: 2025-08-12 19:52:59
+================================================================================
+🏦 Bank Marketing Dataset - Active Learning vs Passive Learning Comparison
+================================================================================
+Dataset: UCI Bank Marketing (Portuguese Bank)
+Target: Whether customer subscribed to term deposit (yes/no)
+Features: Age, job, marital status, education, balance, housing, loan, etc.
+================================================================================
+📊 Dataset Size: 45,211 rows (Full dataset)
+📊 Expected splits: ~36,169 train, ~9,042 test
+================================================================================
+Model Configuration:
+  Model Type: logistic
+
+Plot Configuration:
+  Show Plots: False
+
+Experiment Configuration:
+  Initial samples: 400
+  Initial strategy: diversity
+  Batch size: 60
+  Iterations: 11
+  Strategies: ['uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'qbc']
+  ✓ Initial strategy 'diversity' is valid
+
+📊 Using FULL bank dataset (45,211 rows)
+✅ Loading bank dataset from: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/data/uci_dataset_00222_bank/bank-full.csv
+Feature type: Numerical age and balance
+Loading and splitting data...
+Dataset shape: (45211, 17)
+Cleaning and preprocessing bank dataset...
+🧹 Cleaning and preprocessing bank dataset...
+  📊 Original dataset shape: (45211, 17)
+  🔍 Missing values in original data:
+    No missing values found
+  ✓ Using numerical age features (normalized + squared)
+  ✓ Using numerical balance features (log-transformed + normalized)
+  🔍 Checking for NaN values after preprocessing...
+    Found NaN values in columns:
+balance_norm    1
+dtype: int64
+    🧹 Filling NaN values...
+      balance_norm: filled with median (-0.3586)
+  🔧 Applying global feature standardization...
+    🔒 Using sorted column order for reproducibility: ['age_norm', 'age_squared', 'balance_norm', 'campaign', 'default_bool', 'duration', 'housing_bool', 'loan_bool', 'month_cos', 'month_sin']
+    ✓ Standardized 10 numerical features
+    🔒 Standardization parameters:
+      Mean values: {'age_norm': 2.0116668549090447e-16, 'age_squared': 0.9999778814890183, 'balance_norm': -7.93146638145373e-06, 'campaign': 2.763840658246887, 'default_bool': 0.018026586450200173, 'duration': 258.1630797814691, 'housing_bool': 0.5558381809736569, 'loan_bool': 0.16022649355245405, 'month_cos': -0.4703013950820929, 'month_sin': 0.01844905737733411}
+      Scale values: {'age_norm': 0.999988940683355, 'age_squared': 1.5229247271132622, 'balance_norm': 0.9999793033137726, 'campaign': 3.097986621285248, 'default_bool': 0.133047467586398, 'duration': 257.5249641835511, 'housing_bool': 0.4968723151329254, 'loan_bool': 0.3668159815443426, 'month_cos': 0.6348584209990016, 'month_sin': 0.6127242571927273}
+  📊 Final dataset shape: (45211, 31)
+  🎯 Target distribution: {0: 39922, 1: 5289}
+Features after preprocessing: 31
+Label distribution: {0: 39922, 1: 5289}
+Train set: 36168 samples
+Test set: 9043 samples
+Label distribution in train: {0: 31937, 1: 4231}
+
+================================================================================
+RUNNING 10 EXPERIMENTS FOR STATISTICAL SIGNIFICANCE
+================================================================================
+
+--- Run 1/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4251, Accuracy: 0.8822
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4839, Accuracy: 0.8983
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.5062, Accuracy: 0.8956
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.5221, Accuracy: 0.8985
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.5227, Accuracy: 0.8995
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5225, Accuracy: 0.8987
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5286, Accuracy: 0.8987
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5258, Accuracy: 0.8973
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5267, Accuracy: 0.8981
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5284, Accuracy: 0.8969
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5302, Accuracy: 0.8978
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5072, Accuracy: 0.8947
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.5026, Accuracy: 0.8142
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.5145, Accuracy: 0.8242
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.5094, Accuracy: 0.8157
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.5181, Accuracy: 0.8275
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.5191, Accuracy: 0.8276
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5114, Accuracy: 0.8225
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5124, Accuracy: 0.8237
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5125, Accuracy: 0.8214
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5097, Accuracy: 0.8213
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5126, Accuracy: 0.8215
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5182, Accuracy: 0.8257
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5133, Accuracy: 0.8238
+Run 1 completed - Active F1: 0.5072, Passive F1: 0.5133
+
+--- Run 2/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.3991, Accuracy: 0.8123
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4142, Accuracy: 0.8929
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4782, Accuracy: 0.8923
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4849, Accuracy: 0.8940
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4960, Accuracy: 0.8947
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5075, Accuracy: 0.8954
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5209, Accuracy: 0.8846
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5193, Accuracy: 0.8866
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5244, Accuracy: 0.8897
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5230, Accuracy: 0.8911
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5123, Accuracy: 0.8929
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5150, Accuracy: 0.8942
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.5038, Accuracy: 0.8279
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.5076, Accuracy: 0.8300
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4984, Accuracy: 0.8247
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.5081, Accuracy: 0.8314
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.5113, Accuracy: 0.8319
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5154, Accuracy: 0.8344
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5179, Accuracy: 0.8345
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5192, Accuracy: 0.8359
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5208, Accuracy: 0.8374
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5185, Accuracy: 0.8365
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5206, Accuracy: 0.8373
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5208, Accuracy: 0.8341
+Run 2 completed - Active F1: 0.5150, Passive F1: 0.5208
+
+--- Run 3/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4204, Accuracy: 0.8636
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.3833, Accuracy: 0.8941
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4454, Accuracy: 0.8974
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4510, Accuracy: 0.8970
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4885, Accuracy: 0.8955
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.4948, Accuracy: 0.8922
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.4942, Accuracy: 0.8970
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5116, Accuracy: 0.8949
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5077, Accuracy: 0.8941
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.4932, Accuracy: 0.8969
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.4940, Accuracy: 0.8949
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.4976, Accuracy: 0.8951
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.5119, Accuracy: 0.8326
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.5153, Accuracy: 0.8362
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.5240, Accuracy: 0.8408
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.5231, Accuracy: 0.8402
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.5158, Accuracy: 0.8331
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5106, Accuracy: 0.8301
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5216, Accuracy: 0.8344
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5180, Accuracy: 0.8333
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5200, Accuracy: 0.8320
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5157, Accuracy: 0.8276
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5082, Accuracy: 0.8218
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5024, Accuracy: 0.8200
+Run 3 completed - Active F1: 0.4976, Passive F1: 0.5024
+
+--- Run 4/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.3822, Accuracy: 0.7797
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.3843, Accuracy: 0.8853
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4549, Accuracy: 0.8907
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4559, Accuracy: 0.8891
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4541, Accuracy: 0.8907
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.4603, Accuracy: 0.8911
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.4748, Accuracy: 0.8918
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.4744, Accuracy: 0.8907
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.4686, Accuracy: 0.8890
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.4858, Accuracy: 0.8902
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5047, Accuracy: 0.8909
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5087, Accuracy: 0.8941
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4762, Accuracy: 0.8142
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4831, Accuracy: 0.8163
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4785, Accuracy: 0.8105
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4850, Accuracy: 0.8150
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4908, Accuracy: 0.8199
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.4850, Accuracy: 0.8168
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.4908, Accuracy: 0.8204
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.4937, Accuracy: 0.8214
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.4957, Accuracy: 0.8225
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5010, Accuracy: 0.8271
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5033, Accuracy: 0.8311
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5217, Accuracy: 0.8380
+Run 4 completed - Active F1: 0.5087, Passive F1: 0.5217
+
+--- Run 5/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4509, Accuracy: 0.8030
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4137, Accuracy: 0.8962
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.5089, Accuracy: 0.8976
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.5076, Accuracy: 0.8970
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4917, Accuracy: 0.8945
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.4974, Accuracy: 0.8949
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5140, Accuracy: 0.8944
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.4980, Accuracy: 0.8944
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.4938, Accuracy: 0.8929
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5016, Accuracy: 0.8942
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.4987, Accuracy: 0.8952
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5061, Accuracy: 0.8977
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4879, Accuracy: 0.8160
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4978, Accuracy: 0.8117
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4968, Accuracy: 0.8166
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.5083, Accuracy: 0.8240
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4973, Accuracy: 0.8181
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5027, Accuracy: 0.8186
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5054, Accuracy: 0.8217
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5110, Accuracy: 0.8211
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5140, Accuracy: 0.8254
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5104, Accuracy: 0.8215
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5136, Accuracy: 0.8214
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5055, Accuracy: 0.8165
+Run 5 completed - Active F1: 0.5061, Passive F1: 0.5055
+
+--- Run 6/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4194, Accuracy: 0.8557
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4262, Accuracy: 0.8936
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4647, Accuracy: 0.8952
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4875, Accuracy: 0.8948
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.5107, Accuracy: 0.8959
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5103, Accuracy: 0.8949
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5211, Accuracy: 0.8978
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5183, Accuracy: 0.8944
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5149, Accuracy: 0.8922
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5132, Accuracy: 0.8904
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5121, Accuracy: 0.8909
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5215, Accuracy: 0.8941
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4973, Accuracy: 0.8354
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4847, Accuracy: 0.8257
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4925, Accuracy: 0.8316
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4937, Accuracy: 0.8287
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.5039, Accuracy: 0.8331
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5222, Accuracy: 0.8376
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5193, Accuracy: 0.8365
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5097, Accuracy: 0.8258
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5162, Accuracy: 0.8308
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5202, Accuracy: 0.8325
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5256, Accuracy: 0.8345
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5200, Accuracy: 0.8326
+Run 6 completed - Active F1: 0.5215, Passive F1: 0.5200
+
+--- Run 7/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4499, Accuracy: 0.8770
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4567, Accuracy: 0.8915
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4958, Accuracy: 0.8931
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.5000, Accuracy: 0.8925
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4890, Accuracy: 0.8911
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.4843, Accuracy: 0.8908
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.4868, Accuracy: 0.8925
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5146, Accuracy: 0.8965
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5178, Accuracy: 0.8967
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5287, Accuracy: 0.8989
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5276, Accuracy: 0.8958
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5129, Accuracy: 0.8954
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.5193, Accuracy: 0.8367
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.5259, Accuracy: 0.8417
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.5251, Accuracy: 0.8405
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.5188, Accuracy: 0.8423
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.5206, Accuracy: 0.8421
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5157, Accuracy: 0.8383
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5188, Accuracy: 0.8341
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5206, Accuracy: 0.8343
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5197, Accuracy: 0.8329
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5211, Accuracy: 0.8323
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5246, Accuracy: 0.8331
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5201, Accuracy: 0.8306
+Run 7 completed - Active F1: 0.5129, Passive F1: 0.5201
+
+--- Run 8/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.3768, Accuracy: 0.8066
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4333, Accuracy: 0.8908
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.5053, Accuracy: 0.8966
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4997, Accuracy: 0.8959
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.5174, Accuracy: 0.8987
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5056, Accuracy: 0.8970
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.4943, Accuracy: 0.8956
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5027, Accuracy: 0.8988
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5034, Accuracy: 0.8980
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5150, Accuracy: 0.8995
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5140, Accuracy: 0.8970
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.4997, Accuracy: 0.8942
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4915, Accuracy: 0.8146
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4866, Accuracy: 0.8098
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4909, Accuracy: 0.8110
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4941, Accuracy: 0.8112
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4985, Accuracy: 0.8139
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.4974, Accuracy: 0.8123
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.4962, Accuracy: 0.8066
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.4995, Accuracy: 0.8110
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5031, Accuracy: 0.8138
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5067, Accuracy: 0.8173
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5094, Accuracy: 0.8195
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5117, Accuracy: 0.8206
+Run 8 completed - Active F1: 0.4997, Passive F1: 0.5117
+
+--- Run 9/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.3968, Accuracy: 0.7697
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4334, Accuracy: 0.8854
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4673, Accuracy: 0.8919
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4819, Accuracy: 0.8951
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.5088, Accuracy: 0.8962
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.5071, Accuracy: 0.8941
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5217, Accuracy: 0.8966
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5259, Accuracy: 0.8926
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5302, Accuracy: 0.8915
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5436, Accuracy: 0.8972
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5366, Accuracy: 0.8949
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5135, Accuracy: 0.8902
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4914, Accuracy: 0.8192
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4923, Accuracy: 0.8173
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4992, Accuracy: 0.8184
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4934, Accuracy: 0.8130
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4889, Accuracy: 0.8090
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.4958, Accuracy: 0.8108
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.5000, Accuracy: 0.8117
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5000, Accuracy: 0.8114
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5042, Accuracy: 0.8141
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.4985, Accuracy: 0.8092
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5047, Accuracy: 0.8126
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.4969, Accuracy: 0.8090
+Run 9 completed - Active F1: 0.5135, Passive F1: 0.4969
+
+--- Run 10/10 ---
+
+============================================================
+ACTIVE LEARNING EXPERIMENT
+============================================================
+  Using diversity sampling for initial pool...
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.3923, Accuracy: 0.8471
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.3493, Accuracy: 0.8929
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4246, Accuracy: 0.8913
+Selected 60 samples using diversity sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4263, Accuracy: 0.8902
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4607, Accuracy: 0.8958
+Selected 60 samples using diversity sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.4697, Accuracy: 0.8960
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.4903, Accuracy: 0.8980
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.5000, Accuracy: 0.8974
+Selected 60 samples using diversity sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5130, Accuracy: 0.8989
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5117, Accuracy: 0.8987
+Selected 60 samples using uncertainty sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5201, Accuracy: 0.8962
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5148, Accuracy: 0.8952
+
+============================================================
+PASSIVE LEARNING EXPERIMENT
+============================================================
+Initial labeled pool: 400 samples
+Remaining unlabeled: 28534 samples
+
+--- Iteration 1 ---
+Validation - F1: 0.4720, Accuracy: 0.8098
+Selected 60 samples using random sampling
+Total labeled samples: 460
+Remaining unlabeled: 28474
+
+--- Iteration 2 ---
+Validation - F1: 0.4724, Accuracy: 0.8113
+Selected 60 samples using random sampling
+Total labeled samples: 520
+Remaining unlabeled: 28414
+
+--- Iteration 3 ---
+Validation - F1: 0.4766, Accuracy: 0.8127
+Selected 60 samples using random sampling
+Total labeled samples: 580
+Remaining unlabeled: 28354
+
+--- Iteration 4 ---
+Validation - F1: 0.4813, Accuracy: 0.8164
+Selected 60 samples using random sampling
+Total labeled samples: 640
+Remaining unlabeled: 28294
+
+--- Iteration 5 ---
+Validation - F1: 0.4808, Accuracy: 0.8131
+Selected 60 samples using random sampling
+Total labeled samples: 700
+Remaining unlabeled: 28234
+
+--- Iteration 6 ---
+Validation - F1: 0.4829, Accuracy: 0.8164
+Selected 60 samples using random sampling
+Total labeled samples: 760
+Remaining unlabeled: 28174
+
+--- Iteration 7 ---
+Validation - F1: 0.4861, Accuracy: 0.8164
+Selected 60 samples using random sampling
+Total labeled samples: 820
+Remaining unlabeled: 28114
+
+--- Iteration 8 ---
+Validation - F1: 0.4998, Accuracy: 0.8196
+Selected 60 samples using random sampling
+Total labeled samples: 880
+Remaining unlabeled: 28054
+
+--- Iteration 9 ---
+Validation - F1: 0.5085, Accuracy: 0.8282
+Selected 60 samples using random sampling
+Total labeled samples: 940
+Remaining unlabeled: 27994
+
+--- Iteration 10 ---
+Validation - F1: 0.5068, Accuracy: 0.8286
+Selected 60 samples using random sampling
+Total labeled samples: 1000
+Remaining unlabeled: 27934
+
+--- Iteration 11 ---
+Validation - F1: 0.5048, Accuracy: 0.8283
+
+--- Final Test Evaluation ---
+Test Performance - F1: 0.5112, Accuracy: 0.8280
+Run 10 completed - Active F1: 0.5148, Passive F1: 0.5112
+
+================================================================================
+STATISTICAL SIGNIFICANCE TESTING
+================================================================================
+Active Learning F1: 0.5097 ± 0.0069
+Passive Learning F1: 0.5124 ± 0.0081
+Difference: -0.0027
+
+Paired t-test:
+  t-statistic: -0.9666
+  p-value: 0.359017
+  Significant (α=0.05): No
+
+Wilcoxon signed-rank test:
+  W-statistic: 16.0000
+  p-value: 0.275391
+  Significant (α=0.05): No
+
+Effect size (Cohen's d): -0.3508
+Effect size interpretation: small
+
+95% Confidence Intervals:
+  Active Learning: [0.5047, 0.5147]
+  Passive Learning: [0.5065, 0.5182]
+
+Statistical results saved to: statistical_results_config61.csv
+
+🔍 DEBUG: Data Sources for Tables
+Statistical Test Data Table: All 10 runs (Final Test Set Performance)
+Iteration Progression Plot: Run 1 (Validation Set Performance)
+Summary Section: Run 1 (Final Test Set Performance)
+Note: Statistical test data shows all runs, iteration plot shows training progress
+
+================================================================================
+STATISTICAL TEST DATA COMPARISON (Final Test Set Performance)
+================================================================================
+Note: This table shows the final test set F1 scores used in statistical significance testing
+Each row represents one complete experiment run with different random seeds
+
+ Run  Random_Seed  Active_F1  Passive_F1  Active_Accuracy  Passive_Accuracy  F1_Improvement  Improvement_%
+   1           42   0.507246    0.513291         0.894725          0.823842       -0.006044      -1.177536
+   2           43   0.514952    0.520767         0.894172          0.834126       -0.005815      -1.116608
+   3           44   0.497618    0.502445         0.895057          0.819971       -0.004827      -0.960742
+   4           45   0.508718    0.521711         0.894062          0.837996       -0.012993      -2.490421
+   5           46   0.506140    0.505514         0.897711          0.816543        0.000626       0.123780
+   6           47   0.521479    0.519975         0.894062          0.832578        0.001504       0.289223
+   7           48   0.512873    0.520050         0.895389          0.830587       -0.007177      -1.380021
+   8           49   0.499739    0.511740         0.894172          0.820635       -0.012001      -2.345192
+   9           50   0.513474    0.496941         0.890191          0.809024        0.016532       3.326818
+  10           51   0.514841    0.511160         0.895168          0.828044        0.003681       0.720193
+
+================================================================================
+SUMMARY STATISTICS (All 10 Runs)
+================================================================================
+Active Learning F1: 0.5097 ± 0.0069
+Passive Learning F1: 0.5124 ± 0.0081
+Mean Improvement: -0.0027
+Mean Improvement %: -0.52%
+
+Statistical test data saved to: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/experimentation/data/statistical_test_data_config61.csv
+Iteration progression plot saved to: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/experimentation/data/active_vs_passive_comparison_config61.png
+
+📝 Logging completed - Check the logs folder for detailed output

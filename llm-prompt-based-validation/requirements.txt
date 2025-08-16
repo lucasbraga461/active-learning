@@ -1,0 +1,9 @@
+# Minimal pinned requirements for LLM prompt-based validation (includes numpy and pandas as requested)
+numpy==1.26.4
+pandas==2.2.3
+python-dotenv==1.0.1
+openai==1.60.2
+tqdm==4.67.1
+# Optional notebook tooling
+notebook==7.3.3
+ipykernel==6.29.5 

@@ -1,0 +1,9 @@
+# Minimal pinned requirements for the Active Learning notebooks and helpers
+numpy==1.26.4
+pandas==2.2.3
+scikit-learn==1.6.1
+matplotlib==3.10.1
+seaborn==0.13.2
+notebook==7.3.3
+ipykernel==6.29.5
+lightgbm==3.3.0
