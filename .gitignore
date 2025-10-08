@@ -6,3 +6,56 @@ data/
 _old/
 .env
 z_ignore/
+data_archived/
+active-learning/remove-gridlines/
+active-learning/experimentation-fraud/results/archive/
+
+# Python bytecode and build artifacts
+*.py[cod]
+*.pyo
+*.so
+*.dylib
+*.egg-info/
+.eggs/
+build/
+dist/
+site/
+
+# Jupyter
+.ipynb_checkpoints/
+.jupyter/
+
+# Virtual environments
+.venv/
+pip-wheel-metadata/
+
+# Model artifacts
+*.pkl
+*.joblib
+*.pt
+*.onnx
+*.h5
+*.hdf5
+*.sav
+
+# Coverage and caches
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Editors/OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.AppleDouble
+.LSOverride
+
+# Env variations
+.env.local
+.env.*.local
+*.csv
+remove-gridlines/

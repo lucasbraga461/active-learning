@@ -1,0 +1,307 @@
+📝 Logging started - Output will be saved to: /Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data/matched_quantities_results/logs/experiment_log_fair_parallel_fair_parallel_logistic_01_20250917_230522.txt
+⏰ Timestamp: 2025-09-17 23:05:22
+================================================================================
+💳 Credit Card Fraud Detection - FAIR PARALLEL COMPARISON
+================================================================================
+🎯 Methodology: Active Learning vs Passive Learning with matched quantities
+🔬 Objective: Isolate sample selection QUALITY effects (NO bias)
+✅ Fixes: No shared state, no temporal bias, no data leakage
+================================================================================
+Model Type: logistic
+Configuration: {'initial_samples': 300, 'batch_size': 68, 'n_iterations': 11, 'iteration_strategies': ['uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'diversity', 'diversity', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'qbc']}
+
+✅ Loading fraud dataset from: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/data/european-credit-card-dataset/creditcard.csv
+Loading and splitting credit card fraud data...
+Dataset shape: (284807, 31)
+🧹 Cleaning and preprocessing credit card fraud dataset...
+  📊 Original dataset shape: (284807, 31)
+  🔍 Missing values in original data:
+    No missing values found
+  🎯 Target distribution: {0: 284315, 1: 492}
+  ⚠️  Fraud percentage: 0.173%
+  ✓ Added cyclical time features (hour of day)
+  ✓ Added log-transformed amount feature
+  ✓ Added amount bins for interpretability
+  ✓ One-hot encoded categorical features
+  🔍 Checking for NaN values after preprocessing...
+    ✓ No NaN values found after preprocessing
+  🔧 Applying feature standardization...
+    🔒 Using sorted column order for reproducibility
+    ✓ Standardized 31 numerical features
+    ✓ Kept 6 categorical features unchanged (already 0/1)
+  📊 Final dataset shape: (284807, 37)
+  🎯 Final target distribution: {0: 284315, 1: 492}
+Features after preprocessing: 37
+Label distribution: {0: 284315, 1: 492}
+Train set: 227845 samples
+Test set: 56962 samples
+Label distribution in train: {0: 227451, 1: 394}
+Label distribution in test: {0: 56864, 1: 98}
+
+================================================================================
+FAIR PARALLEL ACTIVE vs PASSIVE LEARNING COMPARISON
+================================================================================
+🎯 Methodology: Both approaches work with identical, independent data
+🔬 Objective: Pure comparison of sample selection quality vs randomness
+================================================================================
+  🎯 Creating stratified initial split with 300 samples...
+    Available fraud samples: 315
+    Available non-fraud samples: 181961
+    ✓ Selected 10 fraud + 290 non-fraud samples
+    ✓ Initial fraud percentage: 3.33%
+✅ FAIR SETUP COMPLETE:
+  Initial labeled pool: 300 samples (identical for both)
+  Initial fraud in labeled: 10 samples (3.33%)
+  Unlabeled pool: 181976 samples (identical independent copies)
+  Validation set: 45569 samples (shared, no contamination)
+  Test set: 56962 samples (shared, no contamination)
+
+============================================================
+ITERATION 1 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.6936, Accuracy: 0.9988, Precision: 0.6383, Recall: 0.7595
+  Selected 68 samples using uncertainty sampling
+  Composition: 0 fraud + 68 non-fraud
+  Total labeled: 368, Fraud: 10 (2.72%)
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.6936, Accuracy: 0.9988, Precision: 0.6383, Recall: 0.7595
+  🎯 MATCHED RANDOM: Selecting 0 fraud + 68 non-fraud
+    ✓ Selected 0 fraud + 68 non-fraud
+    ✓ Total: 68 samples
+  Total labeled: 368, Fraud: 10 (2.72%)
+
+✅ QUANTITY VERIFICATION:
+  Active Learning:  10 fraud + 358 non-fraud = 368 total
+  Passive Learning: 10 fraud + 358 non-fraud = 368 total
+  ✅ Quantities match perfectly!
+
+============================================================
+ITERATION 2 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.7947, Accuracy: 0.9993, Precision: 0.8333, Recall: 0.7595
+  Selected 68 samples using uncertainty sampling
+  Composition: 0 fraud + 68 non-fraud
+  Total labeled: 436, Fraud: 10 (2.29%)
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.7018, Accuracy: 0.9989, Precision: 0.6522, Recall: 0.7595
+  🎯 MATCHED RANDOM: Selecting 0 fraud + 68 non-fraud
+    ✓ Selected 0 fraud + 68 non-fraud
+    ✓ Total: 68 samples
+  Total labeled: 436, Fraud: 10 (2.29%)
+
+✅ QUANTITY VERIFICATION:
+  Active Learning:  10 fraud + 426 non-fraud = 436 total
+  Passive Learning: 10 fraud + 426 non-fraud = 436 total
+  ✅ Quantities match perfectly!
+
+============================================================
+ITERATION 3 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.7947, Accuracy: 0.9993, Precision: 0.8333, Recall: 0.7595
+  Selected 68 samples using uncertainty sampling
+  Composition: 1 fraud + 67 non-fraud
+  Total labeled: 504, Fraud: 11 (2.18%)
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.7229, Accuracy: 0.9990, Precision: 0.6897, Recall: 0.7595
+  🎯 MATCHED RANDOM: Selecting 1 fraud + 67 non-fraud
+    ✓ Selected 1 fraud + 67 non-fraud
+    ✓ Total: 68 samples
+  Total labeled: 504, Fraud: 11 (2.18%)
+
+✅ QUANTITY VERIFICATION:
+  Active Learning:  11 fraud + 493 non-fraud = 504 total
+  Passive Learning: 11 fraud + 493 non-fraud = 504 total
+  ✅ Quantities match perfectly!
+
+============================================================
+ITERATION 4 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.2367, Accuracy: 0.9905, Precision: 0.1376, Recall: 0.8481
+  Selected 68 samples using uncertainty sampling
+  Composition: 0 fraud + 68 non-fraud
+  Total labeled: 572, Fraud: 11 (1.92%)
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.7317, Accuracy: 0.9990, Precision: 0.7059, Recall: 0.7595
+  🎯 MATCHED RANDOM: Selecting 0 fraud + 68 non-fraud
+    ✓ Selected 0 fraud + 68 non-fraud
+    ✓ Total: 68 samples
+  Total labeled: 572, Fraud: 11 (1.92%)
+
+✅ QUANTITY VERIFICATION:
+  Active Learning:  11 fraud + 561 non-fraud = 572 total
+  Passive Learning: 11 fraud + 561 non-fraud = 572 total
+  ✅ Quantities match perfectly!
+
+============================================================
+ITERATION 5 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.6220, Accuracy: 0.9983, Precision: 0.5000, Recall: 0.8228
+  Selected 68 samples using diversity sampling
+  Composition: 9 fraud + 59 non-fraud
+  Total labeled: 640, Fraud: 20 (3.12%)
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.7317, Accuracy: 0.9990, Precision: 0.7059, Recall: 0.7595
+  🎯 MATCHED RANDOM: Selecting 9 fraud + 59 non-fraud
+    ✓ Selected 9 fraud + 59 non-fraud
+    ✓ Total: 68 samples
+  Total labeled: 640, Fraud: 20 (3.12%)
+
+✅ QUANTITY VERIFICATION:
+  Active Learning:  20 fraud + 620 non-fraud = 640 total
+  Passive Learning: 20 fraud + 620 non-fraud = 640 total
+  ✅ Quantities match perfectly!
+
+============================================================
+ITERATION 6 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.7711, Accuracy: 0.9992, Precision: 0.7356, Recall: 0.8101
+  Selected 68 samples using diversity sampling
+  Composition: 6 fraud + 62 non-fraud
+  Total labeled: 708, Fraud: 26 (3.67%)
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.2169, Accuracy: 0.9900, Precision: 0.1255, Recall: 0.7975
+  🎯 MATCHED RANDOM: Selecting 6 fraud + 62 non-fraud
+    ✓ Selected 6 fraud + 62 non-fraud
+    ✓ Total: 68 samples
+  Total labeled: 708, Fraud: 26 (3.67%)
+
+✅ QUANTITY VERIFICATION:
+  Active Learning:  26 fraud + 682 non-fraud = 708 total
+  Passive Learning: 26 fraud + 682 non-fraud = 708 total
+  ✅ Quantities match perfectly!
+
+============================================================
+ITERATION 7 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.7901, Accuracy: 0.9993, Precision: 0.7711, Recall: 0.8101
+  Selected 68 samples using uncertainty sampling
+  Composition: 8 fraud + 60 non-fraud
+  Total labeled: 776, Fraud: 34 (4.38%)
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.0978, Accuracy: 0.9733, Precision: 0.0519, Recall: 0.8354
+  🎯 MATCHED RANDOM: Selecting 8 fraud + 60 non-fraud
+    ✓ Selected 8 fraud + 60 non-fraud
+    ✓ Total: 68 samples
+  Total labeled: 776, Fraud: 34 (4.38%)
+
+✅ QUANTITY VERIFICATION:
+  Active Learning:  34 fraud + 742 non-fraud = 776 total
+  Passive Learning: 34 fraud + 742 non-fraud = 776 total
+  ✅ Quantities match perfectly!
+
+============================================================
+ITERATION 8 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.3785, Accuracy: 0.9952, Precision: 0.2436, Recall: 0.8481
+  Selected 68 samples using diversity sampling
+  Composition: 7 fraud + 61 non-fraud
+  Total labeled: 844, Fraud: 41 (4.86%)
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.1018, Accuracy: 0.9744, Precision: 0.0542, Recall: 0.8354
+  🎯 MATCHED RANDOM: Selecting 7 fraud + 61 non-fraud
+    ✓ Selected 7 fraud + 61 non-fraud
+    ✓ Total: 68 samples
+  Total labeled: 844, Fraud: 41 (4.86%)
+
+✅ QUANTITY VERIFICATION:
+  Active Learning:  41 fraud + 803 non-fraud = 844 total
+  Passive Learning: 41 fraud + 803 non-fraud = 844 total
+  ✅ Quantities match perfectly!
+
+============================================================
+ITERATION 9 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.4012, Accuracy: 0.9956, Precision: 0.2627, Recall: 0.8481
+  Selected 68 samples using uncertainty sampling
+  Composition: 0 fraud + 68 non-fraud
+  Total labeled: 912, Fraud: 41 (4.50%)
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.1048, Accuracy: 0.9752, Precision: 0.0559, Recall: 0.8354
+  🎯 MATCHED RANDOM: Selecting 0 fraud + 68 non-fraud
+    ✓ Selected 0 fraud + 68 non-fraud
+    ✓ Total: 68 samples
+  Total labeled: 912, Fraud: 41 (4.50%)
+
+✅ QUANTITY VERIFICATION:
+  Active Learning:  41 fraud + 871 non-fraud = 912 total
+  Passive Learning: 41 fraud + 871 non-fraud = 912 total
+  ✅ Quantities match perfectly!
+
+============================================================
+ITERATION 10 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.5197, Accuracy: 0.9973, Precision: 0.3771, Recall: 0.8354
+  Selected 68 samples using uncertainty sampling
+  Composition: 1 fraud + 67 non-fraud
+  Total labeled: 980, Fraud: 42 (4.29%)
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.1060, Accuracy: 0.9756, Precision: 0.0566, Recall: 0.8354
+  🎯 MATCHED RANDOM: Selecting 1 fraud + 67 non-fraud
+    ✓ Selected 1 fraud + 67 non-fraud
+    ✓ Total: 68 samples
+  Total labeled: 980, Fraud: 42 (4.29%)
+
+✅ QUANTITY VERIFICATION:
+  Active Learning:  42 fraud + 938 non-fraud = 980 total
+  Passive Learning: 42 fraud + 938 non-fraud = 980 total
+  ✅ Quantities match perfectly!
+
+============================================================
+ITERATION 11 - PARALLEL EXECUTION
+============================================================
+
+🤖 ACTIVE LEARNING:
+  Validation - F1: 0.6377, Accuracy: 0.9984, Precision: 0.5156, Recall: 0.8354
+
+🎲 PASSIVE LEARNING:
+  Validation - F1: 0.1082, Accuracy: 0.9761, Precision: 0.0578, Recall: 0.8354
+
+================================================================================
+FINAL TEST SET EVALUATION
+================================================================================
+🤖 Active Learning  - F1: 0.6007, Accuracy: 0.9980, Precision: 0.4595, Recall: 0.8673
+🎲 Passive Learning - F1: 0.1089, Accuracy: 0.9750, Precision: 0.0580, Recall: 0.8878
+
+📊 IMPROVEMENT ANALYSIS:
+  F1 Improvement: 0.4918
+  Improvement %: 451.68%
+
+✅ EXPERIMENTAL VERIFICATION:
+  ✓ Both approaches used identical initial data
+  ✓ Both approaches used identical train/val/test splits
+  ✓ Both approaches had identical sample quantities
+  ✓ No shared state or temporal bias
+  ✓ Fair comparison of selection QUALITY only
+
+📊 FAIR PARALLEL COMPARISON COMPLETE!
+💾 Results saved to: /Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data/matched_quantities_results/
