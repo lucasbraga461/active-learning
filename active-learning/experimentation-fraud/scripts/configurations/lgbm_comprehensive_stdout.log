@@ -1,0 +1,126 @@
+📝 Logging started - Final LightGBM Comprehensive Experiments
+⏰ Timestamp: 2025-09-18 22:11:01
+💾 Log file: /Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/results/current/final_comprehensive_logs/lightgbm/LIGHTGBM_5configs_10runs_11iters_20250918_221101.txt
+====================================================================================================
+🚀 FINAL COMPREHENSIVE LIGHTGBM EXPERIMENTS
+====================================================================================================
+🔬 OBJECTIVE: Compare different AL strategies with LightGBM
+📊 SCOPE: 5 configurations × 10 runs × 11 iterations = 550 experiments
+⚙️  MODEL: LightGBM (n_estimators=100, learning_rate=0.05, class_weight='balanced')
+🎯 DATASET: Credit Card Fraud Detection (284K samples, 0.173% fraud)
+====================================================================================================
+✅ Loading fraud dataset from: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/data/european-credit-card-dataset/creditcard.csv
+Loading and splitting credit card fraud data...
+Dataset shape: (284807, 31)
+🧹 Cleaning and preprocessing credit card fraud dataset...
+  🎯 Target distribution: {0: 284315, 1: 492}
+  ⚠️  Fraud percentage: 0.173%
+  📊 Final dataset shape: (284807, 37)
+Train set: 227845 samples
+Test set: 56962 samples
+
+🚀 STARTING CONFIG 2001 (1/5)
+📋 Name: Champion_Config95
+📝 Description: CHAMPION from Bank experiments - LightGBM optimized strategy
+🎯 Strategy: ['uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'uncertainty', 'qbc', 'qbc']
+--------------------------------------------------------------------------------
+
+====================================================================================================
+COMPREHENSIVE ANALYSIS: 10 RUNS × 11 ITERATIONS
+====================================================================================================
+🔬 METHODOLOGY: Fair Parallel Comparison with complete tracking
+🎯 GOAL: Understand BOTH volatility AND final aggregated performance
+📊 CONFIGURATION: Champion_Config95 (lightgbm)
+🎯 STRATEGY: ['uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'uncertainty', 'qbc', 'qbc']
+====================================================================================================
+
+🏃 Running experiment 1/10 (seed=42)...
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+   Final: Active F1=0.7489, Passive F1=0.1354, Diff=+0.6135
+
+🏃 Running experiment 2/10 (seed=43)...
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+   Final: Active F1=0.7943, Passive F1=0.0697, Diff=+0.7246
+
+🏃 Running experiment 3/10 (seed=44)...
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+   Final: Active F1=0.7589, Passive F1=0.0790, Diff=+0.6799
+
+🏃 Running experiment 4/10 (seed=45)...
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression
+  ⚠️  Unknown model type 'lightgbm', using Logistic Regression

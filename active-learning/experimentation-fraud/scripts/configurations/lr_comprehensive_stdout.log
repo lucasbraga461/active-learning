@@ -1,0 +1,630 @@
+Traceback (most recent call last):
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/scripts/configurations/final_lr_comprehensive.py", line 161, in main
+    iteration_df, final_df, summary_stats = comprehensive_analysis(
+                                            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/scripts/configurations/../analysis/comprehensive_iteration_analysis.py", line 529, in comprehensive_analysis
+    print(f"  📈 Mean Improvement: {improvement:.4f} ({improvement_pct:+.1f}%)")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+📝 Logging started - Final LR Regularized Comprehensive Experiments
+⏰ Timestamp: 2025-09-18 22:10:32
+💾 Log file: /Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/results/current/final_comprehensive_logs/lr_regularized/LR_REGULARIZED_5configs_10runs_11iters_20250918_221032.txt
+====================================================================================================
+🎯 FINAL COMPREHENSIVE LOGISTIC REGRESSION EXPERIMENTS
+====================================================================================================
+🔬 OBJECTIVE: Compare different AL strategies with LR regularized
+📊 SCOPE: 5 configurations × 10 runs × 11 iterations = 550 experiments
+⚙️  MODEL: Logistic Regression (C=0.1, regularized, class_weight='balanced')
+🎯 DATASET: Credit Card Fraud Detection (284K samples, 0.173% fraud)
+====================================================================================================
+✅ Loading fraud dataset from: /Users/lucasbraga/Documents/GitHub/active-learning/active-learning/data/european-credit-card-dataset/creditcard.csv
+Loading and splitting credit card fraud data...
+Dataset shape: (284807, 31)
+🧹 Cleaning and preprocessing credit card fraud dataset...
+  🎯 Target distribution: {0: 284315, 1: 492}
+  ⚠️  Fraud percentage: 0.173%
+  📊 Final dataset shape: (284807, 37)
+Train set: 227845 samples
+Test set: 56962 samples
+
+🚀 STARTING CONFIG 1001 (1/5)
+📋 Name: Champion_Config62
+📝 Description: CHAMPION from Bank experiments - balanced uncertainty/diversity/qbc strategy
+🎯 Strategy: ['uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'qbc']
+--------------------------------------------------------------------------------
+
+====================================================================================================
+COMPREHENSIVE ANALYSIS: 10 RUNS × 11 ITERATIONS
+====================================================================================================
+🔬 METHODOLOGY: Fair Parallel Comparison with complete tracking
+🎯 GOAL: Understand BOTH volatility AND final aggregated performance
+📊 CONFIGURATION: Champion_Config62 (logistic)
+🎯 STRATEGY: ['uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'diversity', 'uncertainty', 'uncertainty', 'qbc']
+====================================================================================================
+
+🏃 Running experiment 1/10 (seed=42)...
+   Final: Active F1=0.6883, Passive F1=0.2342, Diff=+0.4541
+
+🏃 Running experiment 2/10 (seed=43)...
+   Final: Active F1=0.5870, Passive F1=0.0541, Diff=+0.5330
+
+🏃 Running experiment 3/10 (seed=44)...
+   Final: Active F1=0.7577, Passive F1=0.1244, Diff=+0.6333
+
+🏃 Running experiment 4/10 (seed=45)...
+   Final: Active F1=0.7350, Passive F1=0.2134, Diff=+0.5216
+
+🏃 Running experiment 5/10 (seed=46)...
+   Final: Active F1=0.7960, Passive F1=0.1426, Diff=+0.6534
+
+🏃 Running experiment 6/10 (seed=47)...
+   Final: Active F1=0.7107, Passive F1=0.0461, Diff=+0.6647
+
+🏃 Running experiment 7/10 (seed=48)...
+   Final: Active F1=0.7446, Passive F1=0.2816, Diff=+0.4630
+
+🏃 Running experiment 8/10 (seed=49)...
+   Final: Active F1=0.7265, Passive F1=0.1190, Diff=+0.6075
+
+🏃 Running experiment 9/10 (seed=50)...
+   Final: Active F1=0.7414, Passive F1=0.1224, Diff=+0.6190
+
+🏃 Running experiment 10/10 (seed=51)...
+   Final: Active F1=0.5621, Passive F1=0.0982, Diff=+0.4639
+
+====================================================================================================
+VOLATILITY ANALYSIS: Iteration-by-Iteration Performance
+====================================================================================================
+
+📊 PERFORMANCE VOLATILITY BY ITERATION:
+Iter    Strategy Active_Avg Active_Std Passive_Avg Passive_Std   Avg_Diff   Avg_Imp%
+---- ----------- ---------- ---------- ----------- ----------- ---------- ----------
+   1 uncertainty     0.2610     0.2565      0.2610      0.2565     0.0000       0.0%
+   2 uncertainty     0.3929     0.2812      0.2382      0.2035     0.1546      80.1%
+   3 uncertainty     0.5041     0.3130      0.2418      0.2048     0.2624     130.8%
+   4 uncertainty     0.4485     0.2673      0.2262      0.1980     0.2223     153.8%
+   5   diversity     0.5016     0.2354      0.2348      0.2130     0.2667     186.0%
+   6 uncertainty     0.6238     0.2027      0.1518      0.0717     0.4721     338.4%
+   7 uncertainty     0.6513     0.1660      0.1525      0.0683     0.4988     396.7%
+   8   diversity     0.7099     0.1299      0.1507      0.0733     0.5592     455.0%
+   9 uncertainty     0.7312     0.0959      0.1506      0.0854     0.5806     524.9%
+  10 uncertainty     0.7299     0.0770      0.1424      0.0722     0.5875     547.5%
+  11         qbc     0.7356     0.0922      0.1460      0.0782     0.5896     554.2%
+
+💡 VOLATILITY INSIGHTS:
+  📈 Average Active Learning volatility (std): 0.1925
+  📈 Average Passive Learning volatility (std): 0.1386
+  🎯 Active Learning is 1.39x more volatile than Passive Learning
+  🚨 Significant divergence (>10%) starts at iteration 2
+
+====================================================================================================
+FINAL AGGREGATED RESULTS: Test Set Performance
+====================================================================================================
+
+📊 FINAL PERFORMANCE STATISTICS:
+  🔴 Active Learning F1:  0.7049 ± 0.0745
+  🔵 Passive Learning F1: 0.1436 ± 0.0768
+  📈 Mean Improvement: 0.5613 (+390.9%)
+  🧪 Statistical Significance: Yes (p=0.000000)
+  📏 Effect Size: Cohen's d = 7.417 (Large)
+
+📋 RUN-BY-RUN FINAL RESULTS:
+Run Seed  Active_F1  Passive_F1  Difference Improvement%
+--- ---- ---------- ----------- ----------- ------------
+  1   42     0.6883      0.2342      0.4541       193.9%
+  2   43     0.5870      0.0541      0.5330       986.0%
+  3   44     0.7577      0.1244      0.6333       509.1%
+  4   45     0.7350      0.2134      0.5216       244.4%
+  5   46     0.7960      0.1426      0.6534       458.2%
+  6   47     0.7107      0.0461      0.6647      1442.8%
+  7   48     0.7446      0.2816      0.4630       164.5%
+  8   49     0.7265      0.1190      0.6075       510.5%
+  9   50     0.7414      0.1224      0.6190       505.7%
+ 10   51     0.5621      0.0982      0.4639       472.2%
+❌ CONFIG 1001 FAILED: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+
+🚀 STARTING CONFIG 1002 (2/5)
+📋 Name: Uncertainty_Focused
+📝 Description: Pure uncertainty sampling - focuses on model uncertainty
+🎯 Strategy: ['uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty']
+--------------------------------------------------------------------------------
+
+====================================================================================================
+COMPREHENSIVE ANALYSIS: 10 RUNS × 11 ITERATIONS
+====================================================================================================
+🔬 METHODOLOGY: Fair Parallel Comparison with complete tracking
+🎯 GOAL: Understand BOTH volatility AND final aggregated performance
+📊 CONFIGURATION: Uncertainty_Focused (logistic)
+🎯 STRATEGY: ['uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty', 'uncertainty']
+====================================================================================================
+
+🏃 Running experiment 1/10 (seed=42)...
+   Final: Active F1=0.5667, Passive F1=0.1342, Diff=+0.4325
+
+🏃 Running experiment 2/10 (seed=43)...
+   Final: Active F1=0.2304, Passive F1=0.0549, Diff=+0.1755
+
+🏃 Running experiment 3/10 (seed=44)...
+   Final: Active F1=0.6615, Passive F1=0.1604, Diff=+0.5011
+
+🏃 Running experiment 4/10 (seed=45)...
+   Final: Active F1=0.7288, Passive F1=0.2522, Diff=+0.4766
+Traceback (most recent call last):
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/scripts/configurations/final_lr_comprehensive.py", line 161, in main
+    iteration_df, final_df, summary_stats = comprehensive_analysis(
+                                            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/scripts/configurations/../analysis/comprehensive_iteration_analysis.py", line 529, in comprehensive_analysis
+    print(f"  📈 Mean Improvement: {improvement:.4f} ({improvement_pct:+.1f}%)")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+
+🏃 Running experiment 5/10 (seed=46)...
+   Final: Active F1=0.7921, Passive F1=0.2201, Diff=+0.5720
+
+🏃 Running experiment 6/10 (seed=47)...
+   Final: Active F1=0.6723, Passive F1=0.0529, Diff=+0.6193
+
+🏃 Running experiment 7/10 (seed=48)...
+   Final: Active F1=0.7045, Passive F1=0.1238, Diff=+0.5807
+
+🏃 Running experiment 8/10 (seed=49)...
+   Final: Active F1=0.5822, Passive F1=0.1213, Diff=+0.4609
+
+🏃 Running experiment 9/10 (seed=50)...
+   Final: Active F1=0.6746, Passive F1=0.0895, Diff=+0.5851
+
+🏃 Running experiment 10/10 (seed=51)...
+   Final: Active F1=0.7547, Passive F1=0.4177, Diff=+0.3370
+
+====================================================================================================
+VOLATILITY ANALYSIS: Iteration-by-Iteration Performance
+====================================================================================================
+
+📊 PERFORMANCE VOLATILITY BY ITERATION:
+Iter    Strategy Active_Avg Active_Std Passive_Avg Passive_Std   Avg_Diff   Avg_Imp%
+---- ----------- ---------- ---------- ----------- ----------- ---------- ----------
+   1 uncertainty     0.2610     0.2565      0.2610      0.2565     0.0000       0.0%
+   2 uncertainty     0.3929     0.2812      0.2382      0.2035     0.1546      80.1%
+   3 uncertainty     0.5041     0.3130      0.2418      0.2048     0.2624     130.8%
+   4 uncertainty     0.4485     0.2673      0.2262      0.1980     0.2223     153.8%
+   5 uncertainty     0.5016     0.2354      0.2348      0.2130     0.2667     186.0%
+   6 uncertainty     0.5634     0.2363      0.2210      0.2174     0.3424     254.1%
+   7 uncertainty     0.5689     0.2037      0.1724      0.0976     0.3965     288.1%
+   8 uncertainty     0.5884     0.1884      0.1721      0.1064     0.4163     333.1%
+   9 uncertainty     0.6292     0.1766      0.1731      0.1098     0.4562     388.0%
+  10 uncertainty     0.6480     0.1776      0.1859      0.1171     0.4621     377.8%
+  11 uncertainty     0.6690     0.1644      0.1611      0.0999     0.5078     434.5%
+
+💡 VOLATILITY INSIGHTS:
+  📈 Average Active Learning volatility (std): 0.2273
+  📈 Average Passive Learning volatility (std): 0.1658
+  🎯 Active Learning is 1.37x more volatile than Passive Learning
+  🚨 Significant divergence (>10%) starts at iteration 2
+
+====================================================================================================
+FINAL AGGREGATED RESULTS: Test Set Performance
+====================================================================================================
+
+📊 FINAL PERFORMANCE STATISTICS:
+  🔴 Active Learning F1:  0.6368 ± 0.1590
+  🔵 Passive Learning F1: 0.1627 ± 0.1102
+  📈 Mean Improvement: 0.4741 (+291.4%)
+  🧪 Statistical Significance: Yes (p=0.000002)
+  📏 Effect Size: Cohen's d = 3.466 (Large)
+
+📋 RUN-BY-RUN FINAL RESULTS:
+Run Seed  Active_F1  Passive_F1  Difference Improvement%
+--- ---- ---------- ----------- ----------- ------------
+  1   42     0.5667      0.1342      0.4325       322.4%
+  2   43     0.2304      0.0549      0.1755       319.6%
+  3   44     0.6615      0.1604      0.5011       312.3%
+  4   45     0.7288      0.2522      0.4766       189.0%
+  5   46     0.7921      0.2201      0.5720       259.9%
+  6   47     0.6723      0.0529      0.6193      1169.7%
+  7   48     0.7045      0.1238      0.5807       469.2%
+  8   49     0.5822      0.1213      0.4609       380.0%
+  9   50     0.6746      0.0895      0.5851       653.7%
+ 10   51     0.7547      0.4177      0.3370        80.7%
+❌ CONFIG 1002 FAILED: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+
+🚀 STARTING CONFIG 1003 (3/5)
+📋 Name: Diversity_Focused
+📝 Description: Diversity-heavy strategy - explores feature space broadly
+🎯 Strategy: ['uncertainty', 'uncertainty', 'diversity', 'diversity', 'diversity', 'diversity', 'diversity', 'diversity', 'uncertainty', 'uncertainty', 'qbc']
+--------------------------------------------------------------------------------
+
+====================================================================================================
+COMPREHENSIVE ANALYSIS: 10 RUNS × 11 ITERATIONS
+====================================================================================================
+🔬 METHODOLOGY: Fair Parallel Comparison with complete tracking
+🎯 GOAL: Understand BOTH volatility AND final aggregated performance
+📊 CONFIGURATION: Diversity_Focused (logistic)
+🎯 STRATEGY: ['uncertainty', 'uncertainty', 'diversity', 'diversity', 'diversity', 'diversity', 'diversity', 'diversity', 'uncertainty', 'uncertainty', 'qbc']
+====================================================================================================
+
+🏃 Running experiment 1/10 (seed=42)...
+   Final: Active F1=0.7921, Passive F1=0.0745, Diff=+0.7176
+
+🏃 Running experiment 2/10 (seed=43)...
+   Final: Active F1=0.4611, Passive F1=0.0829, Diff=+0.3782
+
+🏃 Running experiment 3/10 (seed=44)...
+   Final: Active F1=0.7444, Passive F1=0.1015, Diff=+0.6429
+
+🏃 Running experiment 4/10 (seed=45)...
+   Final: Active F1=0.7477, Passive F1=0.1276, Diff=+0.6202
+
+🏃 Running experiment 5/10 (seed=46)...
+   Final: Active F1=0.7628, Passive F1=0.1631, Diff=+0.5997
+
+🏃 Running experiment 6/10 (seed=47)...
+   Final: Active F1=0.4649, Passive F1=0.0897, Diff=+0.3752
+
+🏃 Running experiment 7/10 (seed=48)...
+   Final: Active F1=0.7304, Passive F1=0.1092, Diff=+0.6212
+
+🏃 Running experiment 8/10 (seed=49)...
+   Final: Active F1=0.4037, Passive F1=0.0728, Diff=+0.3309
+
+🏃 Running experiment 9/10 (seed=50)...
+   Final: Active F1=0.7511, Passive F1=0.0825, Diff=+0.6686
+
+🏃 Running experiment 10/10 (seed=51)...
+   Final: Active F1=0.7455, Passive F1=0.0996, Diff=+0.6458
+
+====================================================================================================
+VOLATILITY ANALYSIS: Iteration-by-Iteration Performance
+====================================================================================================
+
+📊 PERFORMANCE VOLATILITY BY ITERATION:
+Iter    Strategy Active_Avg Active_Std Passive_Avg Passive_Std   Avg_Diff   Avg_Imp%
+---- ----------- ---------- ---------- ----------- ----------- ---------- ----------
+   1 uncertainty     0.2610     0.2565      0.2610      0.2565     0.0000       0.0%
+   2 uncertainty     0.3929     0.2812      0.2382      0.2035     0.1546      80.1%
+   3   diversity     0.5041     0.3130      0.2418      0.2048     0.2624     130.8%
+   4   diversity     0.5663     0.2893      0.1413      0.0960     0.4250     358.0%
+   5   diversity     0.5797     0.2758      0.1432      0.0938     0.4365     368.5%
+   6   diversity     0.5970     0.2577      0.1190      0.0483     0.4780     423.4%
+   7   diversity     0.4764     0.2433      0.1114      0.0488     0.3651     362.2%
+   8   diversity     0.3973     0.2169      0.1106      0.0543     0.2867     284.2%
+   9 uncertainty     0.3859     0.1986      0.1012      0.0364     0.2847     293.2%
+  10 uncertainty     0.6220     0.2278      0.0987      0.0306     0.5233     552.4%
+  11         qbc     0.6854     0.1550      0.1002      0.0275     0.5852     609.8%
+
+💡 VOLATILITY INSIGHTS:
+  📈 Average Active Learning volatility (std): 0.2468
+  📈 Average Passive Learning volatility (std): 0.1000
+  🎯 Active Learning is 2.47x more volatile than Passive Learning
+  🚨 Significant divergence (>10%) starts at iteration 2
+
+====================================================================================================
+FINAL AGGREGATED RESULTS: Test Set Performance
+====================================================================================================
+
+📊 FINAL PERFORMANCE STATISTICS:
+  🔴 Active Learning F1:  0.6604 ± 0.1516
+  🔵 Passive Learning F1: 0.1003 ± 0.0277
+  📈 Mean Improvement: 0.5600 (+558.1%)
+  🧪 Statistical Significance: Yes (p=0.000001)
+  📏 Effect Size: Cohen's d = 5.140 (Large)
+
+📋 RUN-BY-RUN FINAL RESULTS:
+Run Seed  Active_F1  Passive_F1  Difference Improvement%
+--- ---- ---------- ----------- ----------- ------------
+  1   42     0.7921      0.0745      0.7176       963.6%
+Traceback (most recent call last):
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/scripts/configurations/final_lr_comprehensive.py", line 161, in main
+    iteration_df, final_df, summary_stats = comprehensive_analysis(
+                                            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/scripts/configurations/../analysis/comprehensive_iteration_analysis.py", line 529, in comprehensive_analysis
+    print(f"  📈 Mean Improvement: {improvement:.4f} ({improvement_pct:+.1f}%)")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+Traceback (most recent call last):
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/scripts/configurations/final_lr_comprehensive.py", line 161, in main
+    iteration_df, final_df, summary_stats = comprehensive_analysis(
+                                            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/scripts/configurations/../analysis/comprehensive_iteration_analysis.py", line 529, in comprehensive_analysis
+    print(f"  📈 Mean Improvement: {improvement:.4f} ({improvement_pct:+.1f}%)")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+  2   43     0.4611      0.0829      0.3782       456.2%
+  3   44     0.7444      0.1015      0.6429       633.2%
+  4   45     0.7477      0.1276      0.6202       486.2%
+  5   46     0.7628      0.1631      0.5997       367.6%
+  6   47     0.4649      0.0897      0.3752       418.2%
+  7   48     0.7304      0.1092      0.6212       568.6%
+  8   49     0.4037      0.0728      0.3309       454.8%
+  9   50     0.7511      0.0825      0.6686       810.4%
+ 10   51     0.7455      0.0996      0.6458       648.4%
+❌ CONFIG 1003 FAILED: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+
+🚀 STARTING CONFIG 1004 (4/5)
+📋 Name: QBC_Focused
+📝 Description: Query-by-Committee heavy - leverages ensemble disagreement
+🎯 Strategy: ['uncertainty', 'uncertainty', 'uncertainty', 'qbc', 'qbc', 'qbc', 'qbc', 'qbc', 'qbc', 'qbc', 'qbc']
+--------------------------------------------------------------------------------
+
+====================================================================================================
+COMPREHENSIVE ANALYSIS: 10 RUNS × 11 ITERATIONS
+====================================================================================================
+🔬 METHODOLOGY: Fair Parallel Comparison with complete tracking
+🎯 GOAL: Understand BOTH volatility AND final aggregated performance
+📊 CONFIGURATION: QBC_Focused (logistic)
+🎯 STRATEGY: ['uncertainty', 'uncertainty', 'uncertainty', 'qbc', 'qbc', 'qbc', 'qbc', 'qbc', 'qbc', 'qbc', 'qbc']
+====================================================================================================
+
+🏃 Running experiment 1/10 (seed=42)...
+   Final: Active F1=0.6227, Passive F1=0.1569, Diff=+0.4658
+
+🏃 Running experiment 2/10 (seed=43)...
+   Final: Active F1=0.4296, Passive F1=0.0786, Diff=+0.3510
+
+🏃 Running experiment 3/10 (seed=44)...
+   Final: Active F1=0.7265, Passive F1=0.1445, Diff=+0.5820
+
+🏃 Running experiment 4/10 (seed=45)...
+   Final: Active F1=0.6615, Passive F1=0.1956, Diff=+0.4659
+
+🏃 Running experiment 5/10 (seed=46)...
+   Final: Active F1=0.6464, Passive F1=0.1288, Diff=+0.5176
+
+🏃 Running experiment 6/10 (seed=47)...
+   Final: Active F1=0.5073, Passive F1=0.0690, Diff=+0.4383
+
+🏃 Running experiment 7/10 (seed=48)...
+   Final: Active F1=0.7456, Passive F1=0.1233, Diff=+0.6223
+
+🏃 Running experiment 8/10 (seed=49)...
+   Final: Active F1=0.5695, Passive F1=0.0811, Diff=+0.4884
+
+🏃 Running experiment 9/10 (seed=50)...
+   Final: Active F1=0.7107, Passive F1=0.1599, Diff=+0.5508
+
+🏃 Running experiment 10/10 (seed=51)...
+   Final: Active F1=0.7049, Passive F1=0.1683, Diff=+0.5366
+
+====================================================================================================
+VOLATILITY ANALYSIS: Iteration-by-Iteration Performance
+====================================================================================================
+
+📊 PERFORMANCE VOLATILITY BY ITERATION:
+Iter    Strategy Active_Avg Active_Std Passive_Avg Passive_Std   Avg_Diff   Avg_Imp%
+---- ----------- ---------- ---------- ----------- ----------- ---------- ----------
+   1 uncertainty     0.2610     0.2565      0.2610      0.2565     0.0000       0.0%
+   2 uncertainty     0.3929     0.2812      0.2382      0.2035     0.1546      80.1%
+   3 uncertainty     0.5041     0.3130      0.2418      0.2048     0.2624     130.8%
+   4         qbc     0.4485     0.2673      0.2262      0.1980     0.2223     153.8%
+   5         qbc     0.4897     0.2364      0.2277      0.2103     0.2620     207.5%
+   6         qbc     0.5498     0.1997      0.2250      0.2213     0.3248     256.0%
+   7         qbc     0.5373     0.1936      0.1789      0.1314     0.3584     271.6%
+   8         qbc     0.5431     0.2226      0.1764      0.1374     0.3667     266.6%
+   9         qbc     0.6341     0.1565      0.1824      0.1418     0.4517     335.9%
+  10         qbc     0.6613     0.1272      0.1300      0.0396     0.5313     439.2%
+  11         qbc     0.6599     0.1090      0.1303      0.0403     0.5296     437.7%
+
+💡 VOLATILITY INSIGHTS:
+  📈 Average Active Learning volatility (std): 0.2148
+  📈 Average Passive Learning volatility (std): 0.1623
+  🎯 Active Learning is 1.32x more volatile than Passive Learning
+  🚨 Significant divergence (>10%) starts at iteration 2
+
+====================================================================================================
+FINAL AGGREGATED RESULTS: Test Set Performance
+====================================================================================================
+
+📊 FINAL PERFORMANCE STATISTICS:
+  🔴 Active Learning F1:  0.6325 ± 0.1027
+  🔵 Passive Learning F1: 0.1306 ± 0.0427
+  📈 Mean Improvement: 0.5019 (+384.3%)
+  🧪 Statistical Significance: Yes (p=0.000000)
+  📏 Effect Size: Cohen's d = 6.382 (Large)
+
+📋 RUN-BY-RUN FINAL RESULTS:
+Run Seed  Active_F1  Passive_F1  Difference Improvement%
+--- ---- ---------- ----------- ----------- ------------
+  1   42     0.6227      0.1569      0.4658       297.0%
+  2   43     0.4296      0.0786      0.3510       446.7%
+  3   44     0.7265      0.1445      0.5820       402.8%
+  4   45     0.6615      0.1956      0.4659       238.3%
+  5   46     0.6464      0.1288      0.5176       401.9%
+  6   47     0.5073      0.0690      0.4383       635.0%
+  7   48     0.7456      0.1233      0.6223       504.6%
+  8   49     0.5695      0.0811      0.4884       602.0%
+  9   50     0.7107      0.1599      0.5508       344.4%
+ 10   51     0.7049      0.1683      0.5366       318.9%
+❌ CONFIG 1004 FAILED: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+
+🚀 STARTING CONFIG 1005 (5/5)
+📋 Name: Balanced_Mixed
+📝 Description: Perfectly balanced rotation of all three strategies
+🎯 Strategy: ['uncertainty', 'diversity', 'qbc', 'uncertainty', 'diversity', 'qbc', 'uncertainty', 'diversity', 'qbc', 'uncertainty', 'diversity']
+--------------------------------------------------------------------------------
+
+====================================================================================================
+COMPREHENSIVE ANALYSIS: 10 RUNS × 11 ITERATIONS
+====================================================================================================
+🔬 METHODOLOGY: Fair Parallel Comparison with complete tracking
+🎯 GOAL: Understand BOTH volatility AND final aggregated performance
+📊 CONFIGURATION: Balanced_Mixed (logistic)
+🎯 STRATEGY: ['uncertainty', 'diversity', 'qbc', 'uncertainty', 'diversity', 'qbc', 'uncertainty', 'diversity', 'qbc', 'uncertainty', 'diversity']
+====================================================================================================
+
+🏃 Running experiment 1/10 (seed=42)...
+   Final: Active F1=0.7727, Passive F1=0.0998, Diff=+0.6729
+
+🏃 Running experiment 2/10 (seed=43)...
+   Final: Active F1=0.7589, Passive F1=0.1269, Diff=+0.6320
+
+🏃 Running experiment 3/10 (seed=44)...
+   Final: Active F1=0.7679, Passive F1=0.1240, Diff=+0.6438
+
+🏃 Running experiment 4/10 (seed=45)...
+   Final: Active F1=0.7456, Passive F1=0.0713, Diff=+0.6743
+
+🏃 Running experiment 5/10 (seed=46)...
+   Final: Active F1=0.7544, Passive F1=0.0744, Diff=+0.6800
+
+🏃 Running experiment 6/10 (seed=47)...
+   Final: Active F1=0.7589, Passive F1=0.0638, Diff=+0.6952
+
+🏃 Running experiment 7/10 (seed=48)...
+   Final: Active F1=0.7748, Passive F1=0.1068, Diff=+0.6680
+
+🏃 Running experiment 8/10 (seed=49)...
+   Final: Active F1=0.7446, Passive F1=0.0877, Diff=+0.6569
+
+🏃 Running experiment 9/10 (seed=50)...
+   Final: Active F1=0.7511, Passive F1=0.1248, Diff=+0.6263
+
+🏃 Running experiment 10/10 (seed=51)...
+   Final: Active F1=0.7623, Passive F1=0.1835, Diff=+0.5788
+
+====================================================================================================
+VOLATILITY ANALYSIS: Iteration-by-Iteration Performance
+====================================================================================================
+
+📊 PERFORMANCE VOLATILITY BY ITERATION:
+Traceback (most recent call last):
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/scripts/configurations/final_lr_comprehensive.py", line 161, in main
+    iteration_df, final_df, summary_stats = comprehensive_analysis(
+                                            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/scripts/configurations/../analysis/comprehensive_iteration_analysis.py", line 529, in comprehensive_analysis
+    print(f"  📈 Mean Improvement: {improvement:.4f} ({improvement_pct:+.1f}%)")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/Users/lucasbraga/Documents/GitHub/active-learning/venv-al-llm/lib/python3.11/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+Iter    Strategy Active_Avg Active_Std Passive_Avg Passive_Std   Avg_Diff   Avg_Imp%
+---- ----------- ---------- ---------- ----------- ----------- ---------- ----------
+   1 uncertainty     0.2610     0.2565      0.2610      0.2565     0.0000       0.0%
+   2   diversity     0.3929     0.2812      0.2382      0.2035     0.1546      80.1%
+   3         qbc     0.4986     0.3074      0.1492      0.1296     0.3495     274.9%
+   4 uncertainty     0.5194     0.2951      0.1077      0.0640     0.4117     411.3%
+   5   diversity     0.6420     0.1949      0.1083      0.0577     0.5338     571.0%
+   6         qbc     0.6728     0.1535      0.1160      0.0623     0.5568     576.1%
+   7 uncertainty     0.7426     0.0509      0.1166      0.0418     0.6260     608.5%
+   8   diversity     0.7394     0.0879      0.1167      0.0420     0.6228     604.4%
+   9         qbc     0.7479     0.0899      0.1106      0.0326     0.6373     628.4%
+  10 uncertainty     0.7598     0.0536      0.1053      0.0323     0.6545     679.8%
+  11   diversity     0.7867     0.0276      0.1068      0.0319     0.6799     696.5%
+
+💡 VOLATILITY INSIGHTS:
+  📈 Average Active Learning volatility (std): 0.1635
+  📈 Average Passive Learning volatility (std): 0.0867
+  🎯 Active Learning is 1.88x more volatile than Passive Learning
+  🚨 Significant divergence (>10%) starts at iteration 2
+
+====================================================================================================
+FINAL AGGREGATED RESULTS: Test Set Performance
+====================================================================================================
+
+📊 FINAL PERFORMANCE STATISTICS:
+  🔴 Active Learning F1:  0.7591 ± 0.0105
+  🔵 Passive Learning F1: 0.1063 ± 0.0357
+  📈 Mean Improvement: 0.6528 (+614.1%)
+  🧪 Statistical Significance: Yes (p=0.000000)
+  📏 Effect Size: Cohen's d = 24.781 (Large)
+
+📋 RUN-BY-RUN FINAL RESULTS:
+Run Seed  Active_F1  Passive_F1  Difference Improvement%
+--- ---- ---------- ----------- ----------- ------------
+  1   42     0.7727      0.0998      0.6729       674.0%
+  2   43     0.7589      0.1269      0.6320       497.9%
+  3   44     0.7679      0.1240      0.6438       519.1%
+  4   45     0.7456      0.0713      0.6743       945.9%
+  5   46     0.7544      0.0744      0.6800       914.5%
+  6   47     0.7589      0.0638      0.6952      1090.3%
+  7   48     0.7748      0.1068      0.6680       625.7%
+  8   49     0.7446      0.0877      0.6569       749.1%
+  9   50     0.7511      0.1248      0.6263       501.7%
+ 10   51     0.7623      0.1835      0.5788       315.3%
+❌ CONFIG 1005 FAILED: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+
+====================================================================================================
+FINAL LR COMPREHENSIVE EXPERIMENT SUMMARY
+====================================================================================================
+✅ Successful: 0/5 configurations
+
+❌ FAILED CONFIGURATIONS:
+   Champion_Config62: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+   Uncertainty_Focused: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+   Diversity_Focused: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+   QBC_Focused: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+   Balanced_Mixed: Cannot save file into a non-existent directory: '/Users/lucasbraga/Documents/GitHub/active-learning/experimentation-fraud/data'
+
+🎉 FINAL LR COMPREHENSIVE EXPERIMENTS COMPLETED!
+📁 Results saved to: experimentation-fraud/results/current/final_lr_comprehensive/
