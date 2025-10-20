@@ -1,0 +1,1 @@
+Active learning consistently outperforms passive learning on the UCI Bank Marketing dataset. Across 10 runs, active selection yields higher F1-scores per run with stable gains, highlighting efficient label usage and improved classification performance for customer term-deposit prediction compared to random sampling.
