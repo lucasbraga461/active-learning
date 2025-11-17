@@ -1,64 +1,116 @@
-# 🧠 Comprehensive Active Learning & LLM Validation Research Repository
+# 🧠 Comprehensive Active Learning & Multi-LLM Research Repository
 
-A comprehensive research project demonstrating advanced Active Learning strategies and LLM Prompt-Based Validation workflows. This repository contains **75 unique experimental configurations** with rigorous statistical analysis, plus a complete LLM validation framework.
+**Companion Repository for the IEEE Access Publication:**  
+*"Active Learning for Imbalanced Classification: Empirical Insights, Iteration Scheduling, and LLM-Augmented Validation"*
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![IEEE Access](https://img.shields.io/badge/Published-IEEE%20Access%202025-blue.svg)](https://ieeexplore.ieee.org/)
+
+## 📚 Access the Research
+
+📖 **IEEE Access Publication**: [IEEE Xplore](https://ieeexplore.ieee.org/document/11215701) *(DOI: 10.1109/ACCESS.2025.3624650)*  
+🧪 **Research Repository**: [GitHub - Active Learning](https://github.com/lucasbraga461/active-learning)  
+📊 **Datasets & Code**: [IEEE DataPort - DOI: 10.21227/29cz-j345](https://dx.doi.org/10.21227/29cz-j345)  
+👤 **Connect with Author**: [LinkedIn - Lucas Braga](https://linkedin.com/in/lucasbraga461) | [ORCID](https://orcid.org/0009-0007-5397-5652)
+
+### Citation
+```bibtex
+@article{braga2025activelearning,
+  title={{Active Learning for Imbalanced Classification: Empirical Insights, Iteration Scheduling, and LLM-Augmented Validation}},
+  author={Benevides e Braga, Lucas},
+  journal={IEEE Access},
+  year={2025},
+  publisher={IEEE},
+  doi={10.1109/ACCESS.2025.3624650},
+  url={https://ieeexplore.ieee.org/document/11215701},
+  note={Code and data available at: https://github.com/lucasbraga461/active-learning}
+}
+```
+
+### 📊 Research Datasets
+- **🏦 UCI Bank Marketing**: [UCI ML Repository](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) (45,211 samples, 11% positive class)
+- **🚨 European Credit Card**: Fraud detection dataset (284,807 transactions, 0.173% fraud rate)  
+- **🤖 NYC Restaurant Dataset**: Business validation dataset (115 samples with ground truth)
+- **🎲 Synthetic Datasets**: [IEEE DataPort - DOI: 10.21227/29cz-j345](https://dx.doi.org/10.21227/29cz-j345)
 
 ---
 
-## 🏆 Key Achievements
+## 📖 About This Repository
 
-- **🎯 Champion Strategy Identified**: Config 62 achieves **6.57% F1 improvement** over passive learning
-- **📊 Comprehensive Analysis**: 75 unique configurations tested across 4 experimental ranges
-- **🔬 Statistical Rigor**: 750 total statistical runs (10 runs per configuration)
-- **🏭 Production-Validated**: Strategies validated on real-world financial datasets
-- **🤖 LLM Integration**: Complete prompt-based validation framework with OpenAI integration
+A comprehensive multi-domain research project demonstrating advanced Active Learning strategies across **banking**, **fraud detection**, and **business validation** domains, plus a complete **multi-LLM validation framework**. This repository provides all practical code examples, experimental configurations, and analysis scripts from the IEEE Access research paper.
+
+## 🏆 Key Research Achievements
+
+### 📊 **Banking Active Learning** (UCI Bank Marketing)
+- **🎯 Champion Strategy**: Config 62 achieves **6.57% F1 improvement** over passive learning
+- **📈 Comprehensive Analysis**: 75 unique configurations tested across 4 experimental ranges
+- **🔬 Statistical Rigor**: 750 total runs (10 runs × 75 configurations)
+- **🏭 Production-Validated**: 4-1-2-1-2-1 strategy pattern proven optimal
+
+### 🚨 **Fraud Detection Active Learning** (European Credit Card)  
+- **⚡ Extraordinary Performance**: **300-600% F1 improvements** for Logistic Regression
+- **🛡️ Robust Validation**: 550 controlled experiments with rigorous anti-bias measures
+- **🎯 Model Comparison**: LightGBM stable (84-136% gains), LR extreme but volatile
+- **📊 Massive Scale**: 284,807 transactions, 0.173% fraud rate
+
+### 🤖 **Multi-LLM Business Validation** (NYC Restaurants)
+- **🥇 Champion Provider**: Perplexity AI achieves **97.6% F1-score** 
+- **⚖️ Comprehensive Comparison**: OpenAI GPT-4o, Perplexity Sonar, Google Gemini
+- **💰 Cost Analysis**: Complete speed/cost/accuracy trade-off evaluation
+- **🏗️ Production Framework**: Extensible multi-provider architecture
 
 ---
 
 ## 📌 What's Inside
 
-### 🧪 **Active Learning Research** (`active-learning/`)
-Complete experimental framework with:
+### 🏦 **Banking Active Learning Research** (`active-learning/experimentation/`)
+**The original 75-configuration study on UCI Bank Marketing Dataset:**
 - **3 Sampling Strategies**: Uncertainty Sampling, Diversity Sampling (k-NN), Query-by-Committee (QBC)
 - **3 Model Types**: Logistic Regression (regularized/unregularized), LightGBM  
 - **2 Feature Engineering Approaches**: Binned vs. standardized features
-- **Comprehensive Experimentation**: 75 unique configurations with statistical analysis
 - **Champion Strategy**: 4-1-2-1-2-1 pattern (uncertainty-diversity-uncertainty-diversity-uncertainty-qbc)
+- **Complete Results**: [`COMPREHENSIVE_EXPERIMENT_REPORT.md`](active-learning/experimentation/COMPREHENSIVE_EXPERIMENT_REPORT.md)
 
-### 🤖 **LLM Prompt-Based Validation** (`llm-prompt-based-validation/`)
-Production-ready validation system with:
-- **Provider-Agnostic Architecture**: Supports multiple LLM providers
+### 🚨 **Fraud Detection Research** (`active-learning/experimentation-fraud/`)
+**Breakthrough active learning results on highly imbalanced fraud detection:**
+- **Dataset**: European Credit Card (284,807 transactions, 0.173% fraud rate)
+- **Extreme Improvements**: 300-600% F1 gains for Logistic Regression, 84-136% for LightGBM
+- **Fair Parallel Comparison**: Rigorous methodology preventing data leakage and bias
+- **Comprehensive Results**: [`RESEARCH_FINDINGS.md`](active-learning/experimentation-fraud/RESEARCH_FINDINGS.md)
+
+### 🤖 **Multi-LLM Business Validation** (`llm-business-validation/`)
+**Production-ready validation system comparing major LLM providers:**
+- **Provider-Agnostic Architecture**: OpenAI, Perplexity, Gemini support
 - **Robust JSON Parsing**: Handles malformed responses gracefully
-- **Offline/Online Modes**: Deterministic dry-run + OpenAI integration
 - **Batched Processing**: Concurrent validation with progress tracking
+- **Performance Analysis**: Complete cost/speed/accuracy evaluation
 - **CLI Interface**: Simple command-line operation
 
 ---
 
-## 🔍 Research Findings
+## 🔍 Research Findings Summary
 
-### **🏆 Champion Strategy (Config 62)**
+### **🏦 Banking Active Learning (Config 62 Champion)**
 - **Performance**: 6.57% F1 improvement over passive learning
-- **Model**: Logistic Regression with regularization (C=0.1)
+- **Model**: Logistic Regression with regularization (C=0.1)  
 - **Features**: Globally standardized numerical features
 - **Strategy Pattern**: `uncertainty(4) → diversity(1) → uncertainty(2) → diversity(1) → uncertainty(2) → qbc(1)`
 
-### **📊 Model Performance Ranking**
-| Rank | Model Type | Feature Type | Best F1 Improvement | Champion Config |
-|------|------------|--------------|-------------------|-----------------|
-| 🥇 1st | LR Regularized | Standardized | **6.57%** | Config 62 |
-| 🥈 2nd | LR Unregularized | Standardized | **5.37%** | Config 124 |
-| 🥉 3rd | LightGBM | Standardized | **4.33%** | Config 95 |
-| 4th | LR Regularized | Binned | **3.95%** | Config 23 |
+### **🚨 Fraud Detection Breakthrough Results**
 
-### **🔬 Key Research Insights**
-1. **Feature standardization is more important than model complexity**
-2. **Uncertainty sampling dominates successful strategies (70-80% of iterations)**
-3. **Strategic diversity placement prevents overfitting**
-4. **QBC finale provides ensemble-based final refinement**
-5. **Regularized models outperform complex alternatives on small labeled datasets**
+| Model Type | Best Config | Active F1 | Passive F1 | Improvement | Stability |
+|------------|-------------|-----------|------------|-------------|-----------|
+| **LightGBM** | 2001 | 0.8259 | 0.3855 | **+114.2%** | ±0.0155 (stable) |
+| **Logistic Regression** | 1005 | 0.7591 | 0.1063 | **+614.1%** | ±0.0105 (volatile) |
+
+### **🤖 Multi-LLM Performance Comparison**
+
+| Provider | F1-Score | Speed | Cost | Best For |
+|----------|----------|--------|------|----------|
+| **Perplexity** | **97.6%** | 4.2s/req | $0.58 | Production (best accuracy) |
+| **OpenAI** | 79.8% | 2.4s/req | $0.35 | Budget-conscious |
+| **Gemini** | 65.8% | 2.7s/req | $0.17 | Cost-sensitive |
 
 ---
 
@@ -66,35 +118,47 @@ Production-ready validation system with:
 
 ```
 active-learning/
-├── experimentation/                    # 🧪 Core research experiments
-│   ├── COMPREHENSIVE_EXPERIMENT_REPORT.md    # 📊 Complete results analysis
-│   ├── simple_active_learning.py            # 🎯 Main experiment script
-│   ├── simple_active_learning-lgbm.py       # 🌳 LightGBM variant
-│   ├── simple_active_learning-noreg.py      # 📈 Unregularized variant
-│   ├── run_configs_*.py                     # ⚙️ Configuration runners
-│   ├── configuration_analysis_report_*.md   # 📋 Detailed config reports
-│   ├── data/                                # 📊 Experimental results
-│   │   ├── logs/                           # 📝 Detailed experiment logs
-│   │   └── *_comparison_*.png              # 📈 Performance visualizations
-│   └── requirements_lgbm.txt               # 📦 LightGBM dependencies
-├── generate_synthetic_data.ipynb           # 🎲 Data generation utilities
-├── helpers/                                # 🛠️ Utility functions
-└── requirements.txt                        # 📦 Core dependencies
-
-llm-prompt-based-validation/
-├── llm_utils.py                            # 🔧 Core utilities & clients
-├── llm_validation.py                       # 🎮 CLI runner
-├── dummy_dataset.csv                       # 📋 Example dataset
-├── results_openai.jsonl                    # 📄 Example results
-├── check-results.ipynb                     # 🔍 Results analysis
-└── requirements.txt                        # 📦 LLM dependencies
+├── active-learning/                          # 🏦 Banking & Fraud Detection Research
+│   ├── experimentation/                      # 📊 UCI Bank Marketing (75 configs)
+│   │   ├── COMPREHENSIVE_EXPERIMENT_REPORT.md      # Complete results analysis
+│   │   ├── simple_active_learning*.py              # Core experiment scripts
+│   │   ├── run_configs_*.py                        # Configuration runners
+│   │   ├── data/logs/                              # Detailed experiment logs
+│   │   ├── data/*_comparison_*.png                 # Performance visualizations
+│   │   └── configuration_analysis_report_*.md      # Range-specific reports
+│   ├── experimentation-fraud/               # 🚨 Credit Card Fraud (550 experiments)
+│   │   ├── RESEARCH_FINDINGS.md                   # Breakthrough results analysis  
+│   │   ├── scripts/core/                          # AL implementations
+│   │   ├── scripts/configurations/                # Experiment runners
+│   │   ├── scripts/analysis/                      # Performance analysis
+│   │   └── results/                               # Comprehensive results
+│   ├── data/                                # 📊 Datasets
+│   │   ├── uci_dataset_00222_bank/               # Bank Marketing Dataset
+│   │   ├── european-credit-card-dataset/         # Credit Card Fraud Dataset
+│   │   └── paysim-dataset/                       # Additional fraud data
+│   ├── helpers/                             # 🛠️ Utility functions
+│   ├── model/                               # 💾 Saved models
+│   └── requirements.txt                     # 📦 Dependencies
+├── llm-business-validation/                  # 🤖 Multi-LLM Research
+│   ├── shared/                              # 🔧 Common components
+│   │   ├── scripts/multi_llm_validator.py         # Multi-provider runner
+│   │   ├── scripts/evaluate_performance.py        # Performance analysis
+│   │   └── data/nyc_restaurants_sample_115.csv    # Test dataset
+│   ├── experiments/                         # 🧪 Provider-specific experiments
+│   │   ├── openai/openai_client.py               # OpenAI GPT-4o implementation
+│   │   ├── perplexity/perplexity_client.py       # Perplexity Sonar implementation  
+│   │   ├── gemini/gemini_client.py               # Google Gemini implementation
+│   │   └── */results/                            # Provider results & analysis
+│   ├── COMPREHENSIVE_LLM_COMPARISON.md      # 📋 Complete LLM comparison results
+│   └── requirements.txt                     # 📦 LLM dependencies
+└── README.md                               # 📖 This file
 ```
 
 ---
 
 ## 🚀 Quick Start
 
-### **Option 1: Run Champion Strategy (Recommended)**
+### **Option 1: Banking Active Learning (Champion Strategy)**
 ```bash
 # Install dependencies
 pip install -r active-learning/requirements.txt
@@ -105,200 +169,88 @@ python simple_active_learning.py
 # Manually set CONFIG_NAME = "config62" in the script
 ```
 
-### **Option 2: Interactive Notebooks**
+### **Option 2: Fraud Detection Active Learning**
 ```bash
-# Install dependencies
+# Install dependencies  
 pip install -r active-learning/requirements.txt
 
-# Launch Jupyter
-jupyter notebook active-learning/notebook-active-learning.ipynb
+# Run comprehensive fraud detection experiments
+cd active-learning/experimentation-fraud/scripts/configurations
+python final_lr_comprehensive.py      # Logistic Regression experiments
+python final_lgbm_comprehensive.py    # LightGBM experiments
 ```
 
-### **Option 3: LLM Validation**
+### **Option 3: Multi-LLM Business Validation**
 ```bash
 # Install LLM dependencies
-pip install -r llm-prompt-based-validation/requirements.txt
+pip install -r llm-business-validation/shared/requirements.txt
 
-# Dry-run mode (offline, deterministic)
-python llm-prompt-based-validation/llm_validation.py \
-  --input-csv llm-prompt-based-validation/dummy_dataset.csv \
-  --output-jsonl results_dryrun.jsonl \
-  --dry-run
-
-# OpenAI mode (requires API key in .env)
+# Set up API keys in .env file
 export OPENAI_API_KEY=sk-...
-python llm-prompt-based-validation/llm_validation.py \
-  --input-csv llm-prompt-based-validation/dummy_dataset.csv \
-  --output-jsonl results_openai.jsonl \
-  --provider openai \
-  --openai-model gpt-4o
+export PERPLEXITY_API_KEY=pplx-...
+export GOOGLE_API_KEY=...
+
+# Test individual providers
+cd llm-business-validation/experiments/perplexity
+python perplexity_client.py
+
+# Run multi-provider comparison  
+cd llm-business-validation
+python shared/scripts/multi_llm_validator.py \
+  --input-csv shared/data/nyc_restaurants_sample_115.csv \
+  --providers perplexity openai gemini
 ```
 
 ---
 
 ## 🧪 Experimental Configurations
 
-### **Configuration Ranges**
-- **Configs 20-41**: Baseline Logistic Regression with binned features  
-- **Configs 50-70**: Standardized features with regularization
-- **Configs 80-100**: LightGBM experimentation  
-- **Configs 110-130**: Unregularized Logistic Regression
+### **Banking Active Learning Ranges**
+- **Configs 20-41**: Baseline Logistic Regression with binned features (3.95% improvement)
+- **Configs 50-70**: Standardized features with regularization (**6.57% champion**)  
+- **Configs 80-100**: LightGBM experimentation (4.33% improvement)
+- **Configs 110-130**: Unregularized Logistic Regression (5.37% improvement)
 
-### **Running Specific Configuration Ranges**
-```bash
-cd active-learning/experimentation
+### **Fraud Detection Configurations**  
+- **LR Configurations (1002-1005)**: 291-614% improvements, high volatility
+- **LightGBM Configurations (2001-2005)**: 84-136% improvements, high stability
+- **Fair Parallel Methodology**: Eliminates data leakage and temporal bias
 
-# Run specific configuration ranges
-python run_configs_20_40.py     # Baseline experiments
-python run_configs_50_70.py     # Standardized features
-python run_configs_80_100.py    # LightGBM experiments  
-python run_configs_110_130.py   # Unregularized experiments
-```
-
-### **Analysis Scripts**
-```bash
-# Analyze results for specific ranges
-python analyze_results-config20-41.py
-python analyze_results-config50-70.py
-python analyze_results-config80-100.py
-python analyze_results-config110-130.py
-```
+### **Multi-LLM Validation Providers**
+- **OpenAI GPT-4o**: 79.8% F1-score, 2.4s/request, $0.35 cost  
+- **Perplexity Sonar**: 97.6% F1-score, 4.2s/request, $0.58 cost (**Winner**)
+- **Google Gemini**: 65.8% F1-score, 2.7s/request, $0.17 cost
 
 ---
 
-## 📊 Comprehensive Results
+## 📊 Key Research Insights
 
-### **Statistical Validation**
-- **Total Experimental Runs**: 750 (75 configs × 10 statistical runs)
-- **Dataset**: UCI Bank Marketing (45,211 samples, 11% class imbalance)
-- **Statistical Tests**: Paired t-tests, Wilcoxon signed-rank tests
-- **Effect Size**: Cohen's d for practical significance
-- **Significance Threshold**: p < 0.001 for strong evidence
+### **🎯 Active Learning Strategy Optimization**
+1. **Feature standardization is more important than model complexity**
+2. **Uncertainty sampling dominates successful strategies (70-80% of iterations)**  
+3. **Strategic diversity placement prevents overfitting**
+4. **QBC finale provides ensemble-based final refinement**
+5. **4-1-2-1-2-1 pattern consistently outperforms other strategies**
 
-### **Champion Strategy Details**
-**Config 62 (6.57% F1 improvement):**
-```
-Iterations 1-4:  uncertainty  (build decision boundary confidence)
-Iteration 5:     diversity    (strategic exploration)
-Iterations 6-7:  uncertainty  (maintain learning momentum)  
-Iteration 8:     diversity    (prevent overfitting)
-Iterations 9-10: uncertainty  (final boundary refinement)
-Iteration 11:    qbc         (ensemble disagreement finale)
-```
+### **🚨 Fraud Detection Breakthroughs**
+1. **Active Learning excels on highly imbalanced data (0.173% fraud rate)**
+2. **Extreme imbalance amplifies AL benefits (300-600% improvements possible)**
+3. **Model choice determines risk-reward profile (stable vs extreme gains)**
+4. **Fair parallel comparison essential for valid results**
 
-### **Performance Visualizations**
-All experiments include comprehensive visualizations:
-- Active vs. Passive learning curves
-- Statistical significance comparisons  
-- Performance distribution analysis
-- Strategy effectiveness heatmaps
-
-### **📁 Accessing Experimental Results**
-Complete experimental results are available in the repository:
-
-- **📝 Detailed Logs**: `active-learning/experimentation/data/logs/experiment_log_configXX_*.txt`
-  - Full statistical analysis for each of the 75 configurations
-  - 10 runs per configuration with complete performance metrics
-  - F1 scores, accuracy, precision, recall, and statistical significance tests
-
-- **📈 Statistical Visualizations**: `active-learning/experimentation/data/statistical_comparison_configXX.png`  
-  - 104+ comparison charts showing active vs. passive learning performance
-  - Box plots with confidence intervals and effect sizes
-  - Visual validation of statistical significance for each configuration
-
-**🎯 Key Files for Reproducibility:**
-- `experiment_log_config62_*.txt` - Champion strategy detailed results
-- `statistical_comparison_config62.png` - Champion performance visualization
-- `COMPREHENSIVE_EXPERIMENT_REPORT.md` - Complete analysis of all 75 configurations
+### **🤖 LLM Provider Selection**  
+1. **Perplexity dominates with web search capabilities (97.6% F1-score)**
+2. **OpenAI provides good balance of cost and performance**
+3. **Gemini offers cost-effective option for budget-conscious applications**
+4. **Provider-agnostic architecture enables easy switching**
 
 ---
 
-## 🔬 Research Methodology
+## 🛠️ Advanced Usage
 
-### **Active Learning Strategies**
-- **Uncertainty Sampling**: Selects samples with lowest model confidence
-- **Diversity Sampling**: KNN-based representative sample selection
-- **Query by Committee**: Ensemble disagreement-based selection
-- **Strategic Combination**: Optimal timing and sequencing patterns
-
-### **Statistical Rigor**
-- **Cross-Validation**: Nested cross-validation with GridSearchCV
-- **Multiple Runs**: 10 independent runs per configuration
-- **Reproducibility**: Fixed random seeds (42-51) for deterministic results
-- **Effect Size**: Practical significance beyond statistical significance
-
-### **Feature Engineering**
-- **Standardization**: Global Z-score normalization for numerical features
-- **Log Transformation**: Applied to skewed distributions
-- **Categorical Encoding**: One-hot encoding with rare category aggregation
-- **Class Balancing**: Weighted sampling for imbalanced datasets
-
----
-
-## 💡 LLM Prompt-Based Validation
-
-### **Core Features**
-- **Flexible Prompting**: Customizable validation prompts for any domain
-- **Robust Parsing**: Handles malformed JSON responses gracefully
-- **Provider Support**: OpenAI (extensible to other providers)
-- **Offline Testing**: Deterministic rule-based responses for development
-- **Batch Processing**: Concurrent requests with progress tracking
-
-### **Production Use Cases**
-- Data quality validation
-- Content moderation  
-- Classification verification
-- Anomaly detection confirmation
-- Human-in-the-loop workflows
-
----
-
-## 📚 Documentation
-
-### **Comprehensive Reports**
-- [`COMPREHENSIVE_EXPERIMENT_REPORT.md`](active-learning/experimentation/COMPREHENSIVE_EXPERIMENT_REPORT.md): Complete analysis of all 75 configurations
-- [`README_CONFIG_OPTIMIZATION.md`](active-learning/experimentation/README_CONFIG_OPTIMIZATION.md): Configuration optimization methodology
-- Individual configuration reports for detailed analysis
-
-### **Research Papers & Citations**
-Based on production validation in real-world financial datasets. **Paper submitted to IEEE Access**. If you use this work, please cite:
-
-```bibtex
-@article{braga2025activelearning,
-  title={{Active Learning for Imbalanced Classification: Empirical Insights, Iteration Scheduling, and LLM-Augmented Validation}},
-  author={Benevides e Braga, Lucas},
-  journal={IEEE Access},
-  year={2025},
-  note={Submitted},
-  url={https://github.com/lucasbraga461/active-learning}
-}
-```
-
----
-
-## 🔗 Dataset Access
-
-### **📊 Main Experimental Dataset**
-**UCI Bank Marketing Dataset** (used for all 75 configurations):
-- **Source**: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing)
-- **Size**: 45,211 samples with 11% positive class
-- **Domain**: Financial services customer behavior
-- **Use Case**: Marketing campaign optimization
-
-### **🎲 Synthetic Datasets** 
-**Custom synthetic datasets for tutorials and examples**:
-- **DOI**: [10.21227/29cz-j345](https://dx.doi.org/10.21227/29cz-j345)
-- **Purpose**: Educational demonstrations and LLM validation workflows
-- **Generated by**: `generate_synthetic_data.ipynb` notebook
-- **Use Case**: Tutorial examples and method validation
-
----
-
-## 🛠️ Advanced Configuration
-
-### **Custom Experiments**
+### **Custom Banking Experiments**
 ```python
-# Example: Create custom configuration
+# Example: Create custom banking configuration
 CONFIG = {
     'name': 'custom_config',
     'initial_samples': 300,
@@ -310,31 +262,46 @@ CONFIG = {
 }
 ```
 
-### **Environment Variables**
+### **Fraud Detection Analysis**
 ```bash
-# Optional configuration
-export OPENAI_API_KEY=sk-...        # For LLM validation
-export AL_EXPERIMENT_TIMEOUT=1800   # Experiment timeout (seconds)
-export AL_MAX_WORKERS=4             # Parallel processing workers
+# Run comprehensive fraud analysis  
+cd active-learning/experimentation-fraud/scripts/analysis
+python comprehensive_iteration_analysis.py
+```
+
+### **LLM Provider Extension**
+```python
+# Example: Add new LLM provider
+class NewProviderClient(BaseLLMClient):
+    def _get_api_key(self):
+        return os.getenv('NEW_PROVIDER_API_KEY')
+    
+    def _call_api(self, prompt):
+        # Implement provider-specific API call
+        pass
 ```
 
 ---
 
 ## 🚀 Production Deployment
 
-### **Key Recommendations**
-1. **Use Config 62 strategy** for optimal performance
+### **Banking Active Learning Recommendations**
+1. **Use Config 62 strategy** (4-1-2-1-2-1 pattern) for optimal performance
 2. **Implement global feature standardization** for numerical features
-3. **Apply regularized Logistic Regression** over complex models
-4. **Follow 4-1-2-1-2-1 uncertainty-diversity pattern**
-5. **Validate on domain-specific data** before production deployment
+3. **Apply regularized Logistic Regression** over complex models  
+4. **Validate on domain-specific data** before production deployment
 
-### **Production Checklist**
-- [ ] Implement champion strategy (Config 62)
-- [ ] Set up feature standardization pipeline
-- [ ] Configure class balancing for imbalanced datasets
-- [ ] Set up monitoring for model performance drift
-- [ ] Implement statistical testing for performance validation
+### **Fraud Detection Recommendations**
+1. **Use LightGBM for production** (stable 100%+ improvements)
+2. **Consider LR for research** (potential 600%+ gains with volatility management)
+3. **Implement fair parallel comparison** for valid performance assessment
+4. **Monitor for data drift** in highly imbalanced scenarios
+
+### **LLM Validation Recommendations**  
+1. **Use Perplexity for highest accuracy** (97.6% F1-score)
+2. **Consider OpenAI for balanced cost/performance** (79.8% F1-score) 
+3. **Implement provider fallback** for robustness
+4. **Monitor API costs** and rate limits
 
 ---
 
@@ -350,7 +317,6 @@ export AL_MAX_WORKERS=4             # Parallel processing workers
 
 - **Lucas Benevides e Braga** - *Author & Developer* - [lucasbraga461](https://github.com/lucasbraga461) | [ORCID](https://orcid.org/0009-0007-5397-5652)
 
-
 ## 📞 Contact
 
 - **Email**: lucasbraga461@gmail.com
@@ -362,4 +328,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**🎯 Research Summary**: 75 configurations tested, Champion strategy (Config 62) achieves 6.57% F1 improvement through strategic uncertainty sampling with diversity placement and QBC finale. Feature standardization proved more important than model complexity for active learning effectiveness.
+**🎯 Research Summary**: Comprehensive multi-domain active learning research spanning banking (75 configs), fraud detection (550 experiments), and LLM validation (3 providers). Champion banking strategy achieves 6.57% F1 improvement, fraud detection shows 300-600% gains, and Perplexity AI dominates LLM validation with 97.6% F1-score. All results statistically validated and production-ready.
