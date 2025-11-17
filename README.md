@@ -11,7 +11,7 @@
 
 📖 **IEEE Access Publication**: [IEEE Xplore](https://ieeexplore.ieee.org/document/11215701) *(DOI: 10.1109/ACCESS.2025.3624650)*  
 🧪 **Research Repository**: [GitHub - Active Learning](https://github.com/lucasbraga461/active-learning)  
-📊 **Datasets & Code**: [IEEE DataPort - DOI: 10.21227/29cz-j345](https://dx.doi.org/10.21227/29cz-j345)  
+📊 **Complete Implementation**: Banking AL + fraud detection AL + multi-LLM validation framework  
 👤 **Connect with Author**: [LinkedIn - Lucas Braga](https://linkedin.com/in/lucasbraga461) | [ORCID](https://orcid.org/0009-0007-5397-5652)
 
 ### Citation
@@ -29,10 +29,9 @@
 ```
 
 ### 📊 Research Datasets
-- **🏦 UCI Bank Marketing**: [UCI ML Repository](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) (45,211 samples, 11% positive class)
-- **🚨 European Credit Card**: Fraud detection dataset (284,807 transactions, 0.173% fraud rate)  
-- **🤖 NYC Restaurant Dataset**: Business validation dataset (115 samples with ground truth)
-- **🎲 Synthetic Datasets**: [IEEE DataPort - DOI: 10.21227/29cz-j345](https://dx.doi.org/10.21227/29cz-j345)
+- **🏦 UCI Bank Marketing**: [UCI ML Repository](https://archive.ics.uci.edu/dataset/222/bank+marketing) (45,211 samples, 11% positive class)
+- **🚨 European Credit Card**: [Kaggle/ULB Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) (284,807 transactions, 0.173% fraud rate)  
+- **🤖 NYC Restaurant Dataset**: [NYC Open Data](https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j) (115 samples with ground truth)
 
 ---
 
